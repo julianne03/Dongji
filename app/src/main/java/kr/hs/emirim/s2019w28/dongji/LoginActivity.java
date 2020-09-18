@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText login_email;
     private EditText login_password;
     private Button login_btn;
+    private Button login_reg_btn;
 
     private FirebaseAuth firebaseAuth;
 
@@ -33,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         login_email = (EditText)findViewById(R.id.login_email);
         login_password = (EditText)findViewById(R.id.login_password);
         login_btn = (Button)findViewById(R.id.login_btn);
+        login_reg_btn = (Button)findViewById(R.id.login_reg_btn);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -59,6 +62,16 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        login_reg_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent regIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(regIntent);
+            }
+        });
+
+
     }
 
     @Override
