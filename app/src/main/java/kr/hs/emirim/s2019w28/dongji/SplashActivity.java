@@ -11,6 +11,5 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        //스플래쉬 화면
     }
 }
