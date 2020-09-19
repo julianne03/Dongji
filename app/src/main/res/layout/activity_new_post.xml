@@ -53,8 +53,8 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName"
-            android:layout_width="353dp"
-            android:layout_height="250dp"
+            android:layout_width="350dp"
+            android:layout_height="228dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
@@ -105,6 +105,5 @@
             android:ems="10"
             android:hint="글 제목"
             android:inputType="textPersonName" />
-
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

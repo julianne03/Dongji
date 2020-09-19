@@ -5,31 +5,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class PostActivity extends AppCompatActivity {
-    private FloatingActionButton goNewPost_btn;
+    private FloatingActionButton goNewPostbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
-        goNewPost_btn = (FloatingActionButton) findViewById(R.id.goNewPost_btn);
+        goNewPostbtn = (FloatingActionButton) findViewById(R.id.goNewPost_btn);
 
-        goNewPost_btn.setOnClickListener(new OnClickListener() {
+        goNewPostbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToPost();
+                goToNewPost();
             }
         });
+
     }
 
-    private void goToPost() {
-        Intent PostIntent = new Intent(this, NewPostActivity.class);
-        startActivity(PostIntent);
+    private void goToNewPost() {
+        Intent loginIntent = new Intent(this, NewPostActivity.class);
+        startActivity(loginIntent);
     }
-
-
 }
