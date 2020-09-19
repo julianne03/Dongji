@@ -16,15 +16,17 @@
         <activity android:name=".AddStoryActivity" />
         <activity android:name=".CommentActivity" />
         <activity android:name=".NewPostActivity" />
-        <activity android:name=".PostActivity" />
-        <activity android:name=".LoginActivity">
-        </activity>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".PostActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity">
+        </activity>
+        <activity android:name=".SplashActivity">
+
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
