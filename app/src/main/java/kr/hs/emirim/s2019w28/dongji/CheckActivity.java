@@ -9,6 +9,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import kr.hs.emirim.s2019w28.dongji.fragment.Question1;
+import kr.hs.emirim.s2019w28.dongji.fragment.Question2;
+import kr.hs.emirim.s2019w28.dongji.fragment.Question3;
+import kr.hs.emirim.s2019w28.dongji.fragment.Question4;
+
 public class CheckActivity extends AppCompatActivity {
 
     private Fragment question1;

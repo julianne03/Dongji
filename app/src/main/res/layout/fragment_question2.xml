@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Question1">
+    tools:context=".fragment.Question1">
 
     <kr.hs.emirim.s2019w28.dongji.MyFontRecipeKorea
         android:id="@+id/textView16"

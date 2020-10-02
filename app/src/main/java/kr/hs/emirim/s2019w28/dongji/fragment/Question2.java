@@ -1,26 +1,26 @@
-package kr.hs.emirim.s2019w28.dongji;
+package kr.hs.emirim.s2019w28.dongji.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import kr.hs.emirim.s2019w28.dongji.CheckActivity;
+import kr.hs.emirim.s2019w28.dongji.R;
 
-public class Question1 extends Fragment {
+public class Question2 extends Fragment {
 
     CheckActivity checkActivity;
 
-    private Button next1_btn;
+    private Button next2_btn;
 
-    public Question1() {
+    public Question2() {
         // Required empty public constructor
     }
 
@@ -45,13 +45,13 @@ public class Question1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_question1, container, false);
-        next1_btn = (Button) viewGroup.findViewById(R.id.next1_btn);
+        ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_question2, container, false);
+        next2_btn = (Button) viewGroup.findViewById(R.id.next2_btn);
 
-        next1_btn.setOnClickListener(new View.OnClickListener() {
+        next2_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkActivity.changeFragment(2);
+                checkActivity.changeFragment(3);
             }
         });
 

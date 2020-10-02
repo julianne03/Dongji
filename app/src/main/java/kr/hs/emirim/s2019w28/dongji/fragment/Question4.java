@@ -1,4 +1,4 @@
-package kr.hs.emirim.s2019w28.dongji;
+package kr.hs.emirim.s2019w28.dongji.fragment;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import kr.hs.emirim.s2019w28.dongji.R;
 
 /**
  * A simple {@link Fragment} subclass.
