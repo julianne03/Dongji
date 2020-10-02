@@ -24,5 +24,19 @@
             android:text="Posts"
             android:textSize="50sp" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/goNewPost_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="36dp"
+            android:clickable="true"
+            app:backgroundTint="#c5e0b4"
+            app:srcCompat="@drawable/ic_baseline_add_24" />
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
