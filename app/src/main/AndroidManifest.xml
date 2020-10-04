@@ -18,7 +18,8 @@
         <activity android:name=".NewPostActivity" />
         <activity android:name=".PostActivity" />
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

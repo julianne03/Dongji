@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/action_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/action_virus"
+        android:icon="@drawable/action_virus"
+        android:title="Virus" />
+
+    <item
+        android:id="@+id/action_check"
+        android:icon="@drawable/action_check"
+        android:title="Check" />
+
+    <item
+        android:id="@+id/action_call"
+        android:icon="@drawable/action_call"
+        android:title="Call" />
+</menu>
