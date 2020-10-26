@@ -18,25 +18,12 @@ import kr.hs.emirim.s2019w28.dongji.R;
 
 
 public class Question1 extends Fragment {
-
-    CheckActivity checkActivity;
+    private Fragment Question2;
 
     private Button next1_btn;
 
     public Question1() {
         // Required empty public constructor
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        checkActivity = (CheckActivity)getActivity();
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        checkActivity = null;
     }
 
     @Override
@@ -49,12 +36,14 @@ public class Question1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_question1, container, false);
+
+        Question2 = new Question2();
         next1_btn = (Button) viewGroup.findViewById(R.id.next1_btn);
 
         next1_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkActivity.changeFragment(2);
+                getFragmentManager().beginTransaction().replace(R.id.question_container, Question2).commit();
             }
         });
 
