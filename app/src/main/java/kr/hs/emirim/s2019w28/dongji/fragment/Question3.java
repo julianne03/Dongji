@@ -16,25 +16,13 @@ import kr.hs.emirim.s2019w28.dongji.R;
 
 public class Question3 extends Fragment {
 
-    CheckActivity checkActivity;
-
+    Fragment Question4;
     private Button next3_btn;
 
     public Question3() {
         // Required empty public constructor
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        checkActivity = (CheckActivity)getActivity();
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        checkActivity = null;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,13 +33,15 @@ public class Question3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_question3, container, false);
-        next3_btn = (Button) viewGroup.findViewById(R.id.next3_btn);
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_question3, container, false);
+
+        Question4 = new Question4();
+        next3_btn = (Button) viewGroup.findViewById(R.id.next1_btn);
 
         next3_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkActivity.changeFragment(4);
+                getFragmentManager().beginTransaction().replace(R.id.question_container, Question4).commit();
             }
         });
 

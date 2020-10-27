@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/number1_selected" />
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toEndOf="@+id/number1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/number2" />
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toEndOf="@+id/number2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/number3" />
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +55,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/question_container"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_width="0dp"
+        android:layout_height="615dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

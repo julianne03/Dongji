@@ -36,7 +36,7 @@ public class Question2 extends Fragment {
         ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_question2, container, false);
 
         Question3 = new Question3();
-        next2_btn = (Button) viewGroup.findViewById(R.id.next2_btn);
+        next2_btn = (Button) viewGroup.findViewById(R.id.next1_btn);
 
         next2_btn.setOnClickListener(new View.OnClickListener() {
             @Override
