@@ -1,23 +1,22 @@
 package kr.hs.emirim.s2019w28.dongji.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
-import kr.hs.emirim.s2019w28.dongji.CheckActivity;
 import kr.hs.emirim.s2019w28.dongji.R;
 
 public class Question3 extends Fragment {
 
     Fragment Question4;
     private Button next3_btn;
+
 
     public Question3() {
         // Required empty public constructor

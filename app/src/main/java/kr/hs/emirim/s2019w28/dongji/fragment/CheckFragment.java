@@ -17,14 +17,6 @@ import kr.hs.emirim.s2019w28.dongji.R;
 public class CheckFragment extends Fragment {
 
     private Fragment question1;
-    private Fragment question2;
-    private Fragment question3;
-    private Fragment question4;
-
-    private ImageView number1;
-    private ImageView number2;
-    private ImageView number3;
-    private ImageView number4;
 
     private Button next1_btn;
 
@@ -40,14 +32,6 @@ public class CheckFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_check, container, false);
 
         question1 = new Question1();
-        question2 = new Question2();
-        question3 = new Question3();
-        question4 = new Question4();
-
-        number1 = (ImageView)view.findViewById(R.id.number1);
-        number2 = (ImageView)view.findViewById(R.id.number2);
-        number3 = (ImageView)view.findViewById(R.id.number3);
-        number4 = (ImageView)view.findViewById(R.id.number4);
 
         getFragmentManager().beginTransaction().replace(R.id.question_container, question1).commit();
 
