@@ -34,7 +34,7 @@ import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 
 public class HomeFragment extends Fragment {
-    private Button add_story;
+    private ImageButton add_story;
     private FloatingActionButton add_post;
     private RecyclerView post_list_view;
     private List<Post> post_list;
@@ -64,6 +64,16 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent newPostIntent = new Intent(getContext(), NewPostActivity.class);
                 startActivity(newPostIntent);
+            }
+        });
+
+        add_story = mView.findViewById(R.id.add_story);
+
+        add_story.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newStoryIntent = new Intent(getContext(), AddStoryActivity.class);
+                startActivity(newStoryIntent);
             }
         });
 
@@ -108,15 +118,7 @@ public class HomeFragment extends Fragment {
         }
 
 
-        add_story = mView.findViewById(R.id.add_story);
 
-        add_story.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent newStoryIntent = new Intent(getContext(), AddStoryActivity.class);
-                startActivity(newStoryIntent);
-            }
-        });
 
 
         return mView;
