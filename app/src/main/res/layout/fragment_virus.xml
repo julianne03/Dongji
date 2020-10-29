@@ -12,7 +12,7 @@
         android:id="@+id/btn_pig"
         android:layout_width="185dp"
         android:layout_height="110dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
@@ -20,7 +20,37 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.249" />
+        app:layout_constraintVertical_bias="0.251" />
+
+    <ImageButton
+        android:id="@+id/btn_cattle2"
+        android:layout_width="188dp"
+        android:layout_height="119dp"
+        android:layout_marginEnd="4dp"
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/etc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_cattle1"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cattle3"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageButton
+        android:id="@+id/btn_cattle3"
+        android:layout_width="190dp"
+        android:layout_height="116dp"
+        android:layout_marginEnd="4dp"
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cattle2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_cattle"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pig"
+        app:layout_constraintVertical_bias="0.083" />
 
     <ImageButton
         android:id="@+id/btn_Ai"
@@ -41,29 +71,28 @@
         android:id="@+id/btn_cattle1"
         android:layout_width="187dp"
         android:layout_height="119dp"
-        android:layout_marginEnd="208dp"
+        android:layout_marginEnd="204dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
         android:src="@drawable/cattle1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cattle"
+        app:layout_constraintVertical_bias="0.059" />
 
     <ImageButton
-        android:id="@+id/btn_cattle2"
-        android:layout_width="190dp"
-        android:layout_height="116dp"
-        android:layout_marginEnd="16dp"
+        android:id="@+id/btn_cattle"
+        android:layout_width="187dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="204dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
-        android:src="@drawable/cattle2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/lamb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Ai" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
