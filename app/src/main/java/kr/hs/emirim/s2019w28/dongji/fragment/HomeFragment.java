@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,12 +30,13 @@ import java.util.List;
 
 import kr.hs.emirim.s2019w28.dongji.Adapter.PostRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.NewPostActivity;
+import kr.hs.emirim.s2019w28.dongji.AddStoryActivity;
 import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.SetupActivity;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 
 public class HomeFragment extends Fragment {
-
+    private ImageButton add_story;
     private FloatingActionButton add_post;
     private RecyclerView post_list_view;
     private List<Post> post_list;
@@ -41,8 +44,8 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore;
     private PostRecyclerAdapter postRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
-
     private ImageView user_page;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -73,6 +76,17 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent setupIntent = new Intent(getContext(), SetupActivity.class);
                 startActivity(setupIntent);
+            }
+        });
+              
+        add_story = mView.findViewById(R.id.add_story);
+
+        add_story.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newStoryIntent = new Intent(getContext(), AddStoryActivity.class);
+                startActivity(newStoryIntent);
+
             }
         });
 
@@ -115,6 +129,9 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
+
+
+
 
 
         return mView;

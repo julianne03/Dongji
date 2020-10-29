@@ -193,7 +193,7 @@ public class NewPostActivity extends AppCompatActivity {
                                         });
 
                                     }
-                                });
+                        });
                             }
                         }
                     });
