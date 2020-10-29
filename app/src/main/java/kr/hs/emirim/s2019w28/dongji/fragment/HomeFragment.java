@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +29,7 @@ import java.util.List;
 import kr.hs.emirim.s2019w28.dongji.Adapter.PostRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.NewPostActivity;
 import kr.hs.emirim.s2019w28.dongji.R;
+import kr.hs.emirim.s2019w28.dongji.SetupActivity;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 
 public class HomeFragment extends Fragment {
@@ -39,6 +41,8 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore;
     private PostRecyclerAdapter postRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
+
+    private ImageView user_page;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -54,12 +58,21 @@ public class HomeFragment extends Fragment {
         post_list_view = mView.findViewById(R.id.post_list_view);
 
         add_post = mView.findViewById(R.id.add_post);
+        user_page = mView.findViewById(R.id.user_page);
 
         add_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent newPostIntent = new Intent(getContext(), NewPostActivity.class);
                 startActivity(newPostIntent);
+            }
+        });
+
+        user_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent setupIntent = new Intent(getContext(), SetupActivity.class);
+                startActivity(setupIntent);
             }
         });
 

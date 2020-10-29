@@ -23,26 +23,30 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
+        <kr.hs.emirim.s2019w28.dongji.MyFontRecipeKorea
             android:id="@+id/post_title_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
-            android:textSize="26sp"
+            android:textColor="#000000"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/post_image_view"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <kr.hs.emirim.s2019w28.dongji.MyFontRecipeKorea
             android:id="@+id/post_content_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="238dp"
+            android:layout_height="66dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="18dp"
             android:text="TextView"
-            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/post_image_view"
             app:layout_constraintTop_toBottomOf="@+id/post_title_view" />
 

@@ -14,9 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailPageActivity"></activity>
+        <activity android:name=".SetupActivity"></activity>
+        <activity android:name=".DetailPageActivity" />
         <activity android:name=".AddStoryActivity" />
-        <activity android:name=".CommentActivity" />
         <activity android:name=".NewPostActivity" />
         <activity android:name=".PostActivity" />
         <activity android:name=".LoginActivity" />
