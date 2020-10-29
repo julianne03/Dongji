@@ -7,57 +7,52 @@
     android:background="#FFFFFF">
 
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="404dp"
-        android:layout_height="731dp"
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/abc_vector_test"
+        app:tint="#c5e0b4" />
+
+    <TextView
+        android:id="@+id/addInfoKor"
+        android:layout_width="130dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="20dp"
+        android:text="새 스토리"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/push_btn"
+        android:layout_width="120dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="#C5E0B4"
+        android:text="올리기"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/post_story"
+        android:layout_width="343dp"
+        android:layout_height="542dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
-
-
-        <TextView
-            android:id="@+id/addInfoKor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="23dp"
-            android:layout_marginLeft="23dp"
-            android:layout_marginTop="101dp"
-            android:text="스토리를 추가하세요."
-            android:textSize="26sp" />
-
-        <TextView
-            android:id="@+id/addInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="40dp"
-            android:text="Add Story"
-            android:textSize="40sp" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="268dp"
-            android:layout_height="460dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="64dp"
-            android:layout_marginLeft="64dp"
-            android:layout_marginTop="173dp"
-            android:text="+"
-            android:textSize="70sp" />
-
-
-    </RelativeLayout>
-
+        app:layout_constraintTop_toBottomOf="@+id/addInfoKor"
+        app:layout_constraintVertical_bias="0.227"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
