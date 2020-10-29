@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <kr.hs.emirim.s2019w28.dongji.MyFontRecipeKorea
+        <kr.hs.emirim.s2019w28.dongji.BmhannaPro
             android:id="@+id/post_title_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             app:layout_constraintStart_toEndOf="@+id/post_image_view"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <kr.hs.emirim.s2019w28.dongji.MyFontRecipeKorea
+        <kr.hs.emirim.s2019w28.dongji.BmhannaPro
             android:id="@+id/post_virus_view"
             android:layout_width="238dp"
             android:layout_height="66dp"

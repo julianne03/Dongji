@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/halfcircle" />
 
-    <kr.hs.emirim.s2019w28.dongji.MyFontRecipeKorea
+    <kr.hs.emirim.s2019w28.dongji.BmhannaPro
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
