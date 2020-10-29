@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -31,6 +32,7 @@ import kr.hs.emirim.s2019w28.dongji.Adapter.PostRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.NewPostActivity;
 import kr.hs.emirim.s2019w28.dongji.AddStoryActivity;
 import kr.hs.emirim.s2019w28.dongji.R;
+import kr.hs.emirim.s2019w28.dongji.SetupActivity;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 
 public class HomeFragment extends Fragment {
@@ -42,6 +44,7 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore;
     private PostRecyclerAdapter postRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
+    private ImageView user_page;
 
 
     public HomeFragment() {
@@ -58,6 +61,7 @@ public class HomeFragment extends Fragment {
         post_list_view = mView.findViewById(R.id.post_list_view);
 
         add_post = mView.findViewById(R.id.add_post);
+        user_page = mView.findViewById(R.id.user_page);
 
         add_post.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +71,14 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        user_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent setupIntent = new Intent(getContext(), SetupActivity.class);
+                startActivity(setupIntent);
+            }
+        });
+              
         add_story = mView.findViewById(R.id.add_story);
 
         add_story.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +86,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent newStoryIntent = new Intent(getContext(), AddStoryActivity.class);
                 startActivity(newStoryIntent);
+
             }
         });
 
