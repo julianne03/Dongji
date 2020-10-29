@@ -164,7 +164,7 @@ public class NewPostActivity extends AppCompatActivity {
                                         PostMap.put("post_title", title);
                                         PostMap.put("post_content",content);
                                         PostMap.put("virus_category",category_text);
-                                        PostMap.put("post_image_uri",downloadUri);
+                                        PostMap.put("post_image",downloadUri);
                                         PostMap.put("user_id", current_user_id);
                                         PostMap.put("timestamp", FieldValue.serverTimestamp());
 
