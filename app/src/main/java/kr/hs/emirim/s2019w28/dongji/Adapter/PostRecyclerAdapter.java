@@ -59,11 +59,11 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
 
 
         String postTitle = post_list.get(position).getPost_title();
-        String postContent = post_list.get(position).getPost_content();
+        String postVirus = post_list.get(position).getVirus_category();
         String postImage = post_list.get(position).getPost_image();
 
         holder.setPostImage(postImage);
-        holder.setPostData(postTitle,postContent);
+        holder.setPostData(postTitle,postVirus);
 
         try {
             long milliseconds = post_list.get(position).getTimestamp().getTime();
@@ -99,7 +99,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
 
         private ImageView post_image;
         private TextView post_title;
-        private TextView post_content;
+        private TextView post_virus;
 
         private TextView post_date;
 
@@ -120,13 +120,13 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
 
         }
 
-        public void setPostData(String title, String content) {
+        public void setPostData(String title, String virus) {
 
             post_title = mView.findViewById(R.id.post_title_view);
-            post_content = mView.findViewById(R.id.post_content_view);
+            post_virus = mView.findViewById(R.id.post_virus_view);
 
             post_title.setText(title);
-            post_content.setText(content);
+            post_virus.setText("# "+virus);
 
         }
 
