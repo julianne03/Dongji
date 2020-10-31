@@ -7,25 +7,33 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +50,9 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private List<User> user_list;
 
     private ImageView post_image;
+    private TextView post_user_name;
+    private CircularImageView post_user_image;
+    private TextView post_date;
     private TextView post_title;
     private TextView post_content;
     private EditText comment_field;
@@ -53,6 +64,8 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private FirebaseAuth firebaseAuth;
 
     private String post_id;
+    private String user_name;
+    private String user_image;
     private String current_user_id;
 
     @Override
@@ -67,7 +80,9 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         comment_send_btn.setOnClickListener(this);
 
         current_user_id = firebaseAuth.getCurrentUser().getUid();
-        post_id = getIntent().getStringExtra("review_id");
+        post_id = getIntent().getStringExtra("post_id");
+        user_name = getIntent().getStringExtra("user_name");
+        user_image = getIntent().getStringExtra("user_image");
 
         //comments recyclerview
         commentsList = new ArrayList<>();
@@ -75,6 +90,50 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         comment_list_view.setHasFixedSize(true);
         comment_list_view.setLayoutManager(new LinearLayoutManager(this));
         comment_list_view.setAdapter(commentsRecyclerAdapter);
+
+        //User 정보 가져오기
+        post_user_name.setText(user_name);
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.ic_baseline_account_circle_24);
+
+        Glide.with(getApplicationContext()).applyDefaultRequestOptions(requestOptions).load(Uri.parse(user_image)).thumbnail().into(post_user_image);
+
+
+        //Post 정보 가져오기
+        final String current_user_id = firebaseAuth.getCurrentUser().getUid();
+        firebaseFirestore.collection("Posts").document(post_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()) {
+                    if(task.getResult().exists()) {
+                        final String title = task.getResult().getString("post_title");
+                        final String image = task.getResult().getString("post_image");
+                        final String content = task.getResult().getString("post_content");
+                        final Date post_timestamp = task.getResult().getDate("timestamp");
+
+                        try {
+                            long milliseconds = post_timestamp.getTime();
+                            String dateString = DateFormat.format("yyyy.MM.dd", new Date(milliseconds)).toString();
+
+                            post_date.setText(dateString);
+
+                        } catch (Exception e) {
+                            Toast.makeText(DetailPageActivity.this, "Exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+
+                        post_title.setText(title);
+                        post_content.setText(content);
+
+                        RequestOptions requestOptions = new RequestOptions();
+                        requestOptions.placeholder(R.drawable.default_image);
+
+                        Glide.with(getApplicationContext()).applyDefaultRequestOptions(requestOptions).load(Uri.parse(image)).thumbnail().into(post_image);
+
+                    }
+                }
+            }
+        });
+
 
         //Comments 가져오기
         firebaseFirestore.collection("Posts/"+post_id+"/Comments")
@@ -135,6 +194,9 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private void findId() {
         comment_list_view = findViewById(R.id.comment_list_view);
         post_image = findViewById(R.id.post_image_detail);
+        post_user_name = findViewById(R.id.detail_post_user);
+        post_user_image = findViewById(R.id.detail_user);
+        post_date = findViewById(R.id.detail_post_date);
         post_title = findViewById(R.id.post_title_detail);
         post_content = findViewById(R.id.post_content_detail);
         comment_field = findViewById(R.id.comment_field);
@@ -148,6 +210,9 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.detail_back_btn :
                 finish();
+                break;
+            default:
+                break;
         }
     }
 }

@@ -24,6 +24,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="730dp">
 
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/detail_user"
+                    android:layout_width="46dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_baseline_account_circle_24"
+                    app:civ_border_color="#000000"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_back_btn" />
+
                 <TextView
                     android:id="@+id/post_title_detail"
                     android:layout_width="wrap_content"
@@ -32,14 +44,14 @@
                     android:layout_marginTop="16dp"
                     android:text="제목"
                     android:textColor="#000000"
-                    android:textSize="30sp"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/post_image_detail" />
 
                 <ImageView
                     android:id="@+id/detail_back_btn"
-                    android:layout_width="58dp"
-                    android:layout_height="54dp"
+                    android:layout_width="38dp"
+                    android:layout_height="41dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:background="#FFFFFF"
@@ -50,18 +62,18 @@
 
                 <ImageView
                     android:id="@+id/post_image_detail"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_width="183dp"
+                    android:layout_height="181dp"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/detail_back_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_user"
                     app:srcCompat="@drawable/default_image" />
 
                 <TextView
                     android:id="@+id/post_content_detail"
-                    android:layout_width="266dp"
-                    android:layout_height="80dp"
+                    android:layout_width="350dp"
+                    android:layout_height="77dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="8dp"
                     android:text="안녕하십니까 저는 2410 이승민입니다. 현재 웹솔루션과에 재학 중이며, 프로그래머라는 꿈을 향해 열심히 노력하고 있습니다."
@@ -73,20 +85,19 @@
                     android:id="@+id/comment_list_view"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/comment" />
+                    app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
                 <ImageView
                     android:id="@+id/help_btn"
-                    android:layout_width="66dp"
-                    android:layout_height="74dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toEndOf="@+id/post_content_detail"
-                    app:layout_constraintTop_toBottomOf="@+id/post_title_detail"
+                    android:layout_width="46dp"
+                    android:layout_height="47dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintStart_toEndOf="@+id/detail_post_date"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_back_btn"
                     app:srcCompat="@drawable/help_icon" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -120,7 +131,7 @@
                         android:id="@+id/comment_send_btn"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
                         app:layout_constraintStart_toEndOf="@+id/comment_field"
                         app:layout_constraintTop_toTopOf="parent"
@@ -133,10 +144,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="8dp"
                     android:text="댓글"
                     android:textColor="#000000"
-                    android:textSize="30sp"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/post_content_detail" />
 
@@ -144,11 +155,32 @@
                     android:id="@+id/divider6"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
                     android:background="?android:attr/listDivider"
-                    app:layout_constraintBottom_toTopOf="@+id/comment_list_view"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/comment" />
+
+                <TextView
+                    android:id="@+id/detail_post_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="아이디"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/detail_user"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_back_btn" />
+
+                <TextView
+                    android:id="@+id/detail_post_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="2020.20.20"
+                    app:layout_constraintStart_toEndOf="@+id/detail_user"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_post_user" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
