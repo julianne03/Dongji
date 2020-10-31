@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.251" />
 
     <ImageButton
-        android:id="@+id/btn_cattle2"
+        android:id="@+id/btn_etc"
         android:layout_width="188dp"
         android:layout_height="119dp"
         android:layout_marginEnd="4dp"
@@ -33,12 +33,12 @@
         android:src="@drawable/etc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_cattle1"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cattle3"
+        app:layout_constraintStart_toEndOf="@+id/btn_cattle"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cow"
         app:layout_constraintVertical_bias="0.137" />
 
     <ImageButton
-        android:id="@+id/btn_cattle3"
+        android:id="@+id/btn_cow"
         android:layout_width="190dp"
         android:layout_height="116dp"
         android:layout_marginEnd="4dp"
@@ -48,7 +48,7 @@
         android:src="@drawable/cattle2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_cattle"
+        app:layout_constraintStart_toEndOf="@+id/btn_brucella"
         app:layout_constraintTop_toBottomOf="@+id/btn_pig"
         app:layout_constraintVertical_bias="0.083" />
 
@@ -68,7 +68,7 @@
         app:layout_constraintVertical_bias="0.237" />
 
     <ImageButton
-        android:id="@+id/btn_cattle1"
+        android:id="@+id/btn_cattle"
         android:layout_width="187dp"
         android:layout_height="119dp"
         android:layout_marginEnd="204dp"
@@ -78,11 +78,11 @@
         android:src="@drawable/cattle1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cattle"
+        app:layout_constraintTop_toBottomOf="@+id/btn_brucella"
         app:layout_constraintVertical_bias="0.059" />
 
     <ImageButton
-        android:id="@+id/btn_cattle"
+        android:id="@+id/btn_brucella"
         android:layout_width="187dp"
         android:layout_height="119dp"
         android:layout_marginTop="16dp"

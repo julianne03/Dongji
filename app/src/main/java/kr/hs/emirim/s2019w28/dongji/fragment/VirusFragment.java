@@ -7,60 +7,120 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import kr.hs.emirim.s2019w28.dongji.R;
+import kr.hs.emirim.s2019w28.dongji.virus_detail.AIFragment;
+import kr.hs.emirim.s2019w28.dongji.virus_detail.PigFragment;
+import kr.hs.emirim.s2019w28.dongji.virus_detail.BrucellaFragment;
+import kr.hs.emirim.s2019w28.dongji.virus_detail.CowFragment;
+import kr.hs.emirim.s2019w28.dongji.virus_detail.EtcFragment;
+import kr.hs.emirim.s2019w28.dongji.virus_detail.FAMFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link VirusFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class VirusFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private Fragment AiFragment;
+    private Fragment BrucellaFragment;
+    private Fragment CowFragment;
+    private Fragment EtcFragment;
+    private Fragment FAMFragment;
+    private Fragment PigFragment;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
+    private ImageButton btn_ai;
+    private ImageButton btn_pig;
+    private ImageButton btn_cow;
+    private ImageButton btn_cattle;
+    private ImageButton btn_brucella;
+    private ImageButton btn_etc;
 
     public VirusFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment VirusFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static VirusFragment newInstance(String param1, String param2) {
-        VirusFragment fragment = new VirusFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_virus, container, false);
+        View view = inflater.inflate(R.layout.fragment_virus, container, false);
+        btn_ai = (ImageButton) view.findViewById(R.id.btn_Ai);
+        btn_pig = (ImageButton) view.findViewById(R.id.btn_pig);
+        btn_cow = (ImageButton) view.findViewById(R.id.btn_cow);
+        btn_cattle = (ImageButton) view.findViewById(R.id.btn_cattle);
+        btn_brucella = (ImageButton) view.findViewById(R.id.btn_brucella);
+        btn_etc = (ImageButton) view.findViewById(R.id.btn_etc);
+
+        btn_ai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AiFragment = new AIFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, AiFragment).commit();
+            }
+        });
+
+        btn_pig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                PigFragment = new PigFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, PigFragment).commit();
+            }
+        });
+
+        btn_brucella.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                BrucellaFragment = new BrucellaFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, BrucellaFragment).commit();
+            }
+        });
+
+
+        btn_cow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                CowFragment = new CowFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, CowFragment).commit();
+            }
+        });
+
+        btn_etc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                EtcFragment = new EtcFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, EtcFragment).commit();
+            }
+        });
+
+
+        btn_cattle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                FAMFragment = new FAMFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, FAMFragment).commit();
+            }
+        });
+
+        // Inflate the layout for this fragment
+        return view;
     }
 }
