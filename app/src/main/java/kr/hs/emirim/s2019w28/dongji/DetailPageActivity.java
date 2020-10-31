@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -67,7 +69,8 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         comment_send_btn.setOnClickListener(this);
 
         current_user_id = firebaseAuth.getCurrentUser().getUid();
-        post_id = getIntent().getStringExtra("review_id");
+        post_id = getIntent().getStringExtra("post_id");
+        Log.e("test",post_id);
 
         //comments recyclerview
         commentsList = new ArrayList<>();
@@ -75,6 +78,21 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         comment_list_view.setHasFixedSize(true);
         comment_list_view.setLayoutManager(new LinearLayoutManager(this));
         comment_list_view.setAdapter(commentsRecyclerAdapter);
+
+        //Post 정보 가져오기
+        final String current_user_id = firebaseAuth.getCurrentUser().getUid();
+        firebaseFirestore.collection("Posts").document(current_user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()) {
+                    if(task.getResult().exists()) {
+                        final String name = task.getResult().getString("name");
+                        final String image = task.getResult().getString("image");
+                    }
+                }
+            }
+        });
+
 
         //Comments 가져오기
         firebaseFirestore.collection("Posts/"+post_id+"/Comments")

@@ -3,6 +3,7 @@ package kr.hs.emirim.s2019w28.dongji.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,11 +76,14 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
             Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
+        holder.findId();
+
+        holder.post_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent detail = new Intent(context, DetailPageActivity.class);
                 detail.putExtra("post_id",PostId);
+                Log.e("test",PostId);
                 context.startActivity(detail);
             }
         });
@@ -109,6 +113,9 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
             mView = v;
         }
 
+        public void findId() {
+            post_item = mView.findViewById(R.id.post_item);
+        }
         public void setPostImage(String downloadUri) {
 
             post_image = mView.findViewById(R.id.post_image_view);
