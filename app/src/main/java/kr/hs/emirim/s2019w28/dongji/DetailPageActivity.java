@@ -10,11 +10,18 @@ import android.widget.ImageView;
 
 import java.util.List;
 
+import kr.hs.emirim.s2019w28.dongji.Adapter.CommentsRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.model.Comments;
+import kr.hs.emirim.s2019w28.dongji.model.User;
 
 public class DetailPageActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView comment_list_view;
+    private CommentsRecyclerAdapter commentsRecyclerAdapter;
+    private List<Comments> commentsList;
+    private List<User> user_list;
+
+
     private ImageView detail_back_btn;
 
     @Override
