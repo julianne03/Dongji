@@ -41,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         login_reg_btn = findViewById(R.id.login_reg_btn);
         login_progress = findViewById(R.id.login_progress);
 
+        login_progress.bringToFront();
+
         firebaseAuth = FirebaseAuth.getInstance();
 
         login_btn.setOnClickListener(new View.OnClickListener() {

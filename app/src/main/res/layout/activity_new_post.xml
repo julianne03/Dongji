@@ -35,12 +35,13 @@
                     app:srcCompat="@drawable/abc_vector_test"
                     app:tint="#c5e0b4" />
 
-                <TextView
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="새 게시물"
+                    android:textColor="#000000"
                     android:textSize="25sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/back_btn"
@@ -63,18 +64,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-                <TextView
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
                     android:id="@+id/textView9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:text="제목"
+                    android:textColor="#000000"
                     android:textSize="25sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/post_image" />
 
-                <TextView
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,6 +84,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="24dp"
                     android:text="내용"
+                    android:textColor="#000000"
                     android:textSize="25sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/virus_category" />
@@ -100,7 +103,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-                <TextView
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
                     android:id="@+id/textView22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -108,6 +111,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="24dp"
                     android:text="바이러스 종류"
+                    android:textColor="#000000"
                     android:textSize="25sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/post_title" />
