@@ -26,17 +26,20 @@ import java.util.List;
 import kr.hs.emirim.s2019w28.dongji.DetailPageActivity;
 import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
+import kr.hs.emirim.s2019w28.dongji.model.User;
 
 public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapter.ViewHolder> {
 
     public List<Post> post_list;
+    public List<User> user_list;
     public Context context;
 
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
 
-    public PostRecyclerAdapter(List<Post> post_list) {
+    public PostRecyclerAdapter(List<Post> post_list,List<User> user_list) {
         this.post_list = post_list;
+        this.user_list = user_list;
     }
 
     @NonNull
@@ -63,6 +66,9 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
         String postVirus = post_list.get(position).getVirus_category();
         String postImage = post_list.get(position).getPost_image();
 
+        final String userName = user_list.get(position).getName();
+        final String userImage = user_list.get(position).getImage();
+
         holder.setPostImage(postImage);
         holder.setPostData(postTitle,postVirus);
 
@@ -83,6 +89,8 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
             public void onClick(View v) {
                 Intent detail = new Intent(context, DetailPageActivity.class);
                 detail.putExtra("post_id",PostId);
+                detail.putExtra("user_name",userName);
+                detail.putExtra("user_image",userImage);
                 Log.e("test",PostId);
                 context.startActivity(detail);
             }

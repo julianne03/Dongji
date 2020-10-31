@@ -16,9 +16,12 @@ import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -34,12 +37,14 @@ import kr.hs.emirim.s2019w28.dongji.AddStoryActivity;
 import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.SetupActivity;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
+import kr.hs.emirim.s2019w28.dongji.model.User;
 
 public class HomeFragment extends Fragment {
     private ImageButton add_story;
     private FloatingActionButton add_post;
     private RecyclerView post_list_view;
     private List<Post> post_list;
+    private List<User> user_list;
 
     private FirebaseFirestore firebaseFirestore;
     private PostRecyclerAdapter postRecyclerAdapter;
@@ -58,6 +63,7 @@ public class HomeFragment extends Fragment {
         View mView = inflater.inflate(R.layout.fragment_home, container, false);
 
         post_list = new ArrayList<>();
+        user_list = new ArrayList<>();
         post_list_view = mView.findViewById(R.id.post_list_view);
 
         add_post = mView.findViewById(R.id.add_post);
@@ -92,7 +98,7 @@ public class HomeFragment extends Fragment {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        postRecyclerAdapter = new PostRecyclerAdapter(post_list);
+        postRecyclerAdapter = new PostRecyclerAdapter(post_list,user_list);
         post_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
         post_list_view.setAdapter(postRecyclerAdapter);
 
@@ -109,6 +115,7 @@ public class HomeFragment extends Fragment {
                     if(firebaseAuth.getCurrentUser() != null) {
                         if(!value.isEmpty()) {
                             post_list.clear();
+                            user_list.clear();
 
                         }
                         if(error != null) {
@@ -121,18 +128,26 @@ public class HomeFragment extends Fragment {
                                 String post_id = doc.getDocument().getId();
                                 final Post post = doc.getDocument().toObject(Post.class).withId(post_id);
 
-                                post_list.add(post);
+                                String postUserId = doc.getDocument().getString("user_id");
+                                firebaseFirestore.collection("Users").document(postUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if(task.isSuccessful()) {
+                                            User user = task.getResult().toObject(User.class);
+
+                                            post_list.add(post);
+                                            user_list.add(user);
+                                        }
+                                        postRecyclerAdapter.notifyDataSetChanged();
+                                    }
+                                });
                             }
                         }
-                        postRecyclerAdapter.notifyDataSetChanged();
+
                     }
                 }
             });
         }
-
-
-
-
 
         return mView;
     }
