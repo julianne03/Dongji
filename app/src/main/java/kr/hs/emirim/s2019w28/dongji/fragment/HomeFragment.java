@@ -39,7 +39,7 @@ import kr.hs.emirim.s2019w28.dongji.SetupActivity;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 import kr.hs.emirim.s2019w28.dongji.model.User;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
     private ImageButton add_story;
     private FloatingActionButton add_post;
     private RecyclerView post_list_view;
@@ -65,36 +65,13 @@ public class HomeFragment extends Fragment {
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
         post_list_view = mView.findViewById(R.id.post_list_view);
-
         add_post = mView.findViewById(R.id.add_post);
         user_page = mView.findViewById(R.id.user_page);
-
-        add_post.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent newPostIntent = new Intent(getContext(), NewPostActivity.class);
-                startActivity(newPostIntent);
-            }
-        });
-
-        user_page.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent setupIntent = new Intent(getContext(), SetupActivity.class);
-                startActivity(setupIntent);
-            }
-        });
-              
         add_story = mView.findViewById(R.id.add_story);
 
-        add_story.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent newStoryIntent = new Intent(getContext(), AddStoryActivity.class);
-                startActivity(newStoryIntent);
-
-            }
-        });
+        add_post.setOnClickListener(this);
+        user_page.setOnClickListener(this);
+        add_story.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -150,5 +127,25 @@ public class HomeFragment extends Fragment {
         }
 
         return mView;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.add_post :
+                Intent newPostIntent = new Intent(getContext(), NewPostActivity.class);
+                startActivity(newPostIntent);
+                break;
+            case R.id.user_page :
+                Intent setupIntent = new Intent(getContext(), SetupActivity.class);
+                startActivity(setupIntent);
+                break;
+            case R.id.add_story :
+                Intent newStoryIntent = new Intent(getContext(), AddStoryActivity.class);
+                startActivity(newStoryIntent);
+                break;
+            default:
+                break;
+        }
     }
 }

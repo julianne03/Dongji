@@ -210,6 +210,9 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.detail_back_btn :
                 finish();
+                break;
+            default:
+                break;
         }
     }
 }
