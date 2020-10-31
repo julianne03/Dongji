@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText login_password;
     private Button login_btn;
     private TextView login_reg_btn;
+    private ProgressBar login_progress;
 
     private FirebaseAuth firebaseAuth;
 
@@ -37,12 +39,14 @@ public class LoginActivity extends AppCompatActivity {
         login_password = (EditText)findViewById(R.id.login_password);
         login_btn = (Button)findViewById(R.id.login_btn);
         login_reg_btn = findViewById(R.id.login_reg_btn);
+        login_progress = findViewById(R.id.login_progress);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                login_progress.setVisibility(View.VISIBLE);
                 String loginEmail = login_email.getText().toString();
                 String loginPassword = login_password.getText().toString();
 
@@ -53,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+                                        login_progress.setVisibility(View.GONE);
                                         sendToMain();
                                     } else {
                                         String error = task.getException().getMessage();
