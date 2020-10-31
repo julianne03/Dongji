@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -45,6 +46,8 @@ public class SetupActivity extends AppCompatActivity {
     private String user_id;
     private EditText user_nickname;
     private Button complete_btn;
+    private Button logout_btn;
+    private ImageView back_btn;
 
     private StorageReference storageReference;
     private FirebaseAuth firebaseAuth;
@@ -64,6 +67,8 @@ public class SetupActivity extends AppCompatActivity {
         user_image = findViewById(R.id.user_image);
         user_nickname = findViewById(R.id.user_nickname);
         complete_btn = findViewById(R.id.complete_btn);
+        logout_btn = findViewById(R.id.logout_btn);
+        back_btn = findViewById(R.id.set_up_back_btn);
 
         firebaseFirestore.collection("Users").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -127,6 +132,22 @@ public class SetupActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(SetupActivity.this,"빈 칸을 채워주세요!",Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                Intent loginIntent = new Intent(SetupActivity.this, LoginActivity.class);
+                startActivity(loginIntent);
+            }
+        });
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
