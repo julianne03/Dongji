@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText reg_password;
     private EditText reg_confirm_password;
     private Button reg_btn;
+    private TextView reg_login_btn;
 
     private FirebaseAuth firebaseAuth;
 
@@ -36,6 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         reg_password = (EditText) findViewById(R.id.reg_password);
         reg_confirm_password = (EditText) findViewById(R.id.reg_confirm_password);
         reg_btn = (Button) findViewById(R.id.reg_btn);
+        reg_login_btn = findViewById(R.id.reg_login_btn);
 
         reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +71,14 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, "다시 입력한 비밀번호와 기존 비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
                     }
                 }
+            }
+        });
+
+        reg_login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent regIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(regIntent);
             }
         });
     }

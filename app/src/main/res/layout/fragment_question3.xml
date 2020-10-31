@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/number4" />
 
-    <kr.hs.emirim.s2019w28.dongji.BmhannaPro
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <kr.hs.emirim.s2019w28.dongji.BmhannaPro
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

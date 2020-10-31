@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.414"
         app:srcCompat="@drawable/dongji_logo" />
 
-    <kr.hs.emirim.s2019w28.dongji.BmhannaPro
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

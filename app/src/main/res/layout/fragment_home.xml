@@ -7,7 +7,7 @@
     android:backgroundTint="#FFFFFF"
     tools:context=".fragment.HomeFragment">
 
-    <kr.hs.emirim.s2019w28.dongji.BmhannaPro
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-    <kr.hs.emirim.s2019w28.dongji.BmhannaPro
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
