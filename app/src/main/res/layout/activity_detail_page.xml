@@ -36,7 +36,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/detail_back_btn" />
 
-                <TextView
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
                     android:id="@+id/post_title_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/detail_user"
                     app:srcCompat="@drawable/default_image" />
 
-                <TextView
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
                     android:id="@+id/post_content_detail"
                     android:layout_width="350dp"
                     android:layout_height="77dp"
@@ -91,12 +91,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
                 <ImageView
-                    android:id="@+id/help_btn"
+                    android:id="@+id/detail_help_btn"
                     android:layout_width="46dp"
                     android:layout_height="47dp"
-                    android:layout_marginStart="60dp"
                     android:layout_marginTop="4dp"
-                    app:layout_constraintStart_toEndOf="@+id/detail_post_date"
+                    android:layout_marginEnd="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/detail_back_btn"
                     app:srcCompat="@drawable/help_icon" />
 
@@ -139,7 +139,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
                     android:id="@+id/comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/comment" />
 
-                <TextView
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
                     android:id="@+id/detail_post_user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
                     app:layout_constraintStart_toEndOf="@+id/detail_user"
                     app:layout_constraintTop_toBottomOf="@+id/detail_back_btn" />
 
-                <TextView
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
                     android:id="@+id/detail_post_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -181,6 +181,25 @@
                     android:text="2020.20.20"
                     app:layout_constraintStart_toEndOf="@+id/detail_user"
                     app:layout_constraintTop_toBottomOf="@+id/detail_post_user" />
+
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="도움 되셨나요?"
+                    android:textColor="#2979FF"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_help_btn"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+                    android:id="@+id/detail_help_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="43dp"
+                    android:text="0 help"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_help_btn" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

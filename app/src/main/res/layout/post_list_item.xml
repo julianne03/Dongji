@@ -31,21 +31,20 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="#000000"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/post_image_view"
             app:layout_constraintTop_toTopOf="parent" />
 
         <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
             android:id="@+id/post_virus_view"
-            android:layout_width="238dp"
-            android:layout_height="66dp"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="18dp"
+            android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="#1CBA6D"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/post_image_view"
             app:layout_constraintTop_toBottomOf="@+id/post_title_view" />
 
@@ -66,9 +65,40 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/divider2"
+            android:text="2020.20.20"
+            android:textAlignment="center"
+            android:textColor="#707070"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/post_help_btn"
+            android:layout_width="40dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView25"
+            app:srcCompat="@drawable/help_icon" />
+
+        <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="도움 되셨나요?"
+            android:textColor="#2979FF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/post_help_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:text="0 help"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_help_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
