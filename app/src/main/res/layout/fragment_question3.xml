@@ -8,6 +8,28 @@
     android:backgroundTint="#FFFFFF"
     tools:context=".fragment.Question3">
 
+    <Button
+        android:id="@+id/back2_btn"
+        android:layout_width="151dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/button_background"
+        android:text="이전"
+        app:layout_constraintEnd_toStartOf="@+id/next3_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <Button
+        android:id="@+id/next3_btn"
+        android:layout_width="151dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="44dp"
+        android:background="@drawable/button_background"
+        android:text="다음"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
     <ImageView
         android:id="@+id/number1"
         android:layout_width="wrap_content"
@@ -116,17 +138,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
-    <Button
-        android:id="@+id/next1_btn"
-        android:layout_width="237dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="179dp"
-        android:background="@drawable/button_background"
-        android:text="next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.382"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 </androidx.constraintlayout.widget.ConstraintLayout>

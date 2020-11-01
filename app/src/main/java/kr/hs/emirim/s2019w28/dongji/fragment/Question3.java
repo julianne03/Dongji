@@ -8,15 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import kr.hs.emirim.s2019w28.dongji.R;
 
 public class Question3 extends Fragment {
-
+    Fragment Question2;
     Fragment Question4;
     private Button next3_btn;
-
+    private Button back2_btn;
 
     public Question3() {
         // Required empty public constructor
@@ -33,14 +32,22 @@ public class Question3 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_question3, container, false);
-
+        Question2 = new Question2();
         Question4 = new Question4();
-        next3_btn = (Button) viewGroup.findViewById(R.id.next1_btn);
+        next3_btn = (Button) viewGroup.findViewById(R.id.next3_btn);
+        back2_btn = (Button) viewGroup.findViewById(R.id.back2_btn);
 
         next3_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getFragmentManager().beginTransaction().replace(R.id.question_container, Question4).commit();
+            }
+        });
+
+        back2_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.question_container, Question2).commit();
             }
         });
 

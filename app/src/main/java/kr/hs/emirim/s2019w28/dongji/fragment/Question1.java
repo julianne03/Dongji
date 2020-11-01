@@ -8,11 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import kr.hs.emirim.s2019w28.dongji.R;
-
-import static kr.hs.emirim.s2019w28.dongji.R.drawable.number1;
 
 
 public class Question1 extends Fragment {
@@ -36,7 +33,7 @@ public class Question1 extends Fragment {
         ViewGroup viewGroup = (ViewGroup)inflater.inflate(R.layout.fragment_question1, container, false);
 
         Question2 = new Question2();
-        next1_btn = (Button) viewGroup.findViewById(R.id.next1_btn);
+        next1_btn = (Button) viewGroup.findViewById(R.id.next2_btn);
 
 
         next1_btn.setOnClickListener(new View.OnClickListener() {
