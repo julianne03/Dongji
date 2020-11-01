@@ -82,14 +82,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="37.5도 미만"
+            android:text="예"
             android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="37.5도 이상 및 발열감 "
+            android:text="아니오"
             android:textSize="20sp" />
     </RadioGroup>
 
@@ -109,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:padding="20dp"
-        android:text="동물의 몸에 열이 있나요?\n단, 기저질환 등으로 코로나19와 관계없이 평소에 발열 증상이 계속되는 경우는 제외"
+        android:text="시기에 맞춰 동물에게 예방접종을 하셨나요?                   (생후 6주가 되지 않은 동물 제외)"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
