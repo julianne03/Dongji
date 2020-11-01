@@ -64,7 +64,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
         holder.setIsRecyclable(false);
 
@@ -93,6 +93,70 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
         }
 
         holder.findId();
+
+        //help btn click
+        holder.help_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseFirestore.collection("Posts/"+PostId+"/Helps")
+                        .document(currentUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(!task.getResult().exists()) {
+                            firebaseFirestore.collection("Posts")
+                                    .document(PostId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if(task.getResult().exists()) {
+                                        Map<String,Object> helpsMap = new HashMap<>();
+                                        helpsMap.put("user_id",currentUserId);
+                                        helpsMap.put("timestamp",FieldValue.serverTimestamp());
+
+                                        firebaseFirestore.collection("Posts/"+PostId+"/Helps")
+                                                .document(currentUserId).set(helpsMap);
+
+                                    }
+                                }
+                            });
+                        } else {
+                            firebaseFirestore.collection("Posts/"+PostId+"/Helps")
+                                    .document(currentUserId).delete();
+                        }
+                    }
+                });
+            }
+        });
+
+
+
+        //help count
+        if(currentUserId != null) {
+            firebaseFirestore.collection("Posts/"+PostId+"/Helps").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(!value.isEmpty()) {
+                        int count = value.size();
+                        holder.updateHelpsCount(count);
+                    } else {
+                        holder.updateHelpsCount(0);
+                    }
+                }
+            });
+
+            //help btn image change
+            if(firebaseAuth.getCurrentUser() != null) {
+                firebaseFirestore.collection("Posts/"+ PostId + "/Helps").document(currentUserId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (value.exists()) {
+                            holder.help_btn.setImageResource(R.drawable.help_icon_accent);
+                        } else {
+                            holder.help_btn.setImageResource(R.drawable.help_icon);
+                        }
+                    }
+                });
+            }
+        }
 
         holder.post_item.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,10 +189,15 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
 
         private TextView post_date;
 
+        private ImageView help_btn;
+        private TextView help_count;
+
 
         public ViewHolder(View v) {
             super(v);
             mView = v;
+
+            help_btn = mView.findViewById(R.id.post_help_btn);
         }
 
         public void findId() {
@@ -159,6 +228,11 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
             post_date = mView.findViewById(R.id.post_date);
             post_date.setText(date);
 
+        }
+
+        public void updateHelpsCount(int count) {
+            help_count = mView.findViewById(R.id.post_help_count);
+            help_count.setText(count+" help");
         }
     }
 }

@@ -39,7 +39,7 @@
         <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
             android:id="@+id/post_virus_view"
             android:layout_width="wrap_content"
-            android:layout_height="29dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
@@ -75,29 +75,30 @@
             android:id="@+id/post_help_btn"
             android:layout_width="40dp"
             android:layout_height="44dp"
-            android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView25"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@+id/post_virus_view"
             app:srcCompat="@drawable/help_icon" />
 
         <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
             android:id="@+id/textView25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
             android:text="도움 되셨나요?"
             android:textColor="#2979FF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/post_image_view"
+            app:layout_constraintTop_toBottomOf="@+id/post_virus_view" />
 
         <TextView
             android:id="@+id/post_help_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="16dp"
             android:text="0 help"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView25"
             app:layout_constraintTop_toBottomOf="@+id/post_help_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
