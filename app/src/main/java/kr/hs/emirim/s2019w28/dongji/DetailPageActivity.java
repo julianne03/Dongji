@@ -68,6 +68,9 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private String user_image;
     private String current_user_id;
 
+    private ImageView help_btn;
+    private TextView help_count;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -184,6 +187,74 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+        //help btn click
+        help_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseFirestore.collection("Posts/"+post_id+"/Helps")
+                        .document(current_user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(!task.getResult().exists()) {
+                            firebaseFirestore.collection("Posts")
+                                    .document(post_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if(task.getResult().exists()) {
+                                        Map<String,Object> helpsMap = new HashMap<>();
+                                        helpsMap.put("user_id",current_user_id);
+                                        helpsMap.put("timestamp",FieldValue.serverTimestamp());
+
+                                        firebaseFirestore.collection("Posts/"+post_id+"/Helps")
+                                                .document(current_user_id).set(helpsMap);
+
+                                    }
+                                }
+                            });
+                        } else {
+                            firebaseFirestore.collection("Posts/"+post_id+"/Helps")
+                                    .document(current_user_id).delete();
+                        }
+                    }
+                });
+            }
+        });
+
+
+
+        //help count
+        if(current_user_id != null) {
+            firebaseFirestore.collection("Posts/"+post_id+"/Helps").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(!value.isEmpty()) {
+                        int count = value.size();
+                        updateHelpsCount(count);
+                    } else {
+                        updateHelpsCount(0);
+                    }
+                }
+            });
+
+            //help btn image change
+            if(firebaseAuth.getCurrentUser() != null) {
+                firebaseFirestore.collection("Posts/"+ post_id + "/Helps").document(current_user_id).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (value.exists()) {
+                            help_btn.setImageResource(R.drawable.help_icon_accent);
+                        } else {
+                            help_btn.setImageResource(R.drawable.help_icon);
+                        }
+                    }
+                });
+            }
+        }
+
+    }
+
+    private void updateHelpsCount(int count) {
+        help_count.setText(count+" help");
     }
 
     private void init() {
@@ -202,6 +273,8 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         comment_field = findViewById(R.id.comment_field);
         detail_back_btn = findViewById(R.id.detail_back_btn);
         comment_send_btn = findViewById(R.id.comment_send_btn);
+        help_btn = findViewById(R.id.detail_help_btn);
+        help_count = findViewById(R.id.detail_help_count);
 
     }
 

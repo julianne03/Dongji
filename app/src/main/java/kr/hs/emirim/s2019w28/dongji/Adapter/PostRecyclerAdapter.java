@@ -165,6 +165,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
                 detail.putExtra("post_id",PostId);
                 detail.putExtra("user_name",userName);
                 detail.putExtra("user_image",userImage);
+
                 Log.e("test",PostId);
                 context.startActivity(detail);
             }

@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -64,7 +63,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        post_list_view = mView.findViewById(R.id.post_list_view);
+        post_list_view = mView.findViewById(R.id.post_list_view_ai);
         add_post = mView.findViewById(R.id.add_post);
         user_page = mView.findViewById(R.id.user_page);
         add_story = mView.findViewById(R.id.add_story);

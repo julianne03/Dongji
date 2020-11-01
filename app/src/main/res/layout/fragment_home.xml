@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/post_list_view"
+        android:id="@+id/post_list_view_ai"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
