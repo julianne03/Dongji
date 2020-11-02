@@ -29,11 +29,13 @@ import java.util.List;
 
 import kr.hs.emirim.s2019w28.dongji.Adapter.PostRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.R;
+import kr.hs.emirim.s2019w28.dongji.fragment.VirusFragment;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 import kr.hs.emirim.s2019w28.dongji.model.User;
 
 public class PigFragment extends Fragment {
-
+    private Fragment VirusFragment;
+    private ImageView go_virus6;
     private RecyclerView post_list_view;
     private List<Post> post_list;
     private List<User> user_list;
@@ -52,10 +54,20 @@ public class PigFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_pig, container, false);
-
+        go_virus6 = mView.findViewById(R.id.go_virus6);
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
         post_list_view = mView.findViewById(R.id.post_list_view_pig);
+
+        go_virus6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                VirusFragment = new VirusFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, VirusFragment).commit();
+            }
+        });
 
         firebaseAuth = FirebaseAuth.getInstance();
 

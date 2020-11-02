@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,11 +29,14 @@ import java.util.List;
 
 import kr.hs.emirim.s2019w28.dongji.Adapter.PostRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.R;
+import kr.hs.emirim.s2019w28.dongji.fragment.VirusFragment;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 import kr.hs.emirim.s2019w28.dongji.model.User;
 
 
 public class FAMFragment extends Fragment {
+    private Fragment VirusFragment;
+    private ImageView go_virus5;
     private RecyclerView post_list_view;
     private List<Post> post_list;
     private List<User> user_list;
@@ -51,10 +55,20 @@ public class FAMFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_fam, container, false);
-
+        go_virus5 = mView.findViewById(R.id.go_virus5);
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
         post_list_view = mView.findViewById(R.id.post_list_view_fam);
+
+        go_virus5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                VirusFragment = new VirusFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, VirusFragment).commit();
+            }
+        });
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -67,7 +81,7 @@ public class FAMFragment extends Fragment {
             firebaseFirestore = FirebaseFirestore.getInstance();
 
             Query query = firebaseFirestore.collection("Posts")
-                    .whereEqualTo("virus_category","기타");
+                    .whereEqualTo("virus_category","구제역(FMD)");
 
 
             query.addSnapshotListener(new EventListener<QuerySnapshot>() {

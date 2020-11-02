@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,12 +30,13 @@ import java.util.List;
 
 import kr.hs.emirim.s2019w28.dongji.Adapter.PostRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.R;
+import kr.hs.emirim.s2019w28.dongji.fragment.VirusFragment;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 import kr.hs.emirim.s2019w28.dongji.model.User;
 
 public class AIFragment extends Fragment {
-
-
+    private Fragment VirusFragment;
+    private ImageView go_virus1;
     private RecyclerView post_list_view;
     private List<Post> post_list;
     private List<User> user_list;
@@ -52,7 +55,7 @@ public class AIFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_ai, container, false);
-
+        go_virus1 = mView.findViewById(R.id.go_virus1);
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
         post_list_view = mView.findViewById(R.id.post_list_view_ai);
@@ -62,6 +65,16 @@ public class AIFragment extends Fragment {
         postRecyclerAdapter = new PostRecyclerAdapter(post_list,user_list);
         post_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
         post_list_view.setAdapter(postRecyclerAdapter);
+
+        go_virus1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                VirusFragment = new VirusFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, VirusFragment).commit();
+            }
+        });
 
         if(firebaseAuth.getCurrentUser() != null) {
 

@@ -10,10 +10,73 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_list_view_brucella"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_width="412dp"
+        android:layout_height="383dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView37">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="460dp"
+        android:layout_height="227dp"
+        android:src="@drawable/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-18dp" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="브루셀라증"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/go_virus2"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/textView35"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/abc_vector_test"
+        app:tint="#70142709" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="385dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:text="브루셀라증은 염소, 양, 돼지, 소 등 가축에 의해 전염된다. 보통 동물들 사이의 감염은 상처부위로 균이 침투하거나 오염된 사료 등에 의해 이루어진다. 브루셀라증은 전파속도가 매우 빨라 보통 가축 사이에 감염되면 피해가 매우 심하다."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="# 몰아보기"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

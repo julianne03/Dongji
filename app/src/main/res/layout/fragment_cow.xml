@@ -6,11 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".virus_detail.CowFragment" >
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="460dp"
+        android:layout_height="227dp"
+        android:src="@drawable/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-18dp" />
+
+    <ImageView
+        android:id="@+id/go_virus3"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/textView33"
+        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/abc_vector_test"
+        app:tint="#70142709" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="소해면상뇌증"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="373dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="8dp"
+        android:text="소에서 발생하는 만성 신경성 질병으로서 일명 광우병 또는 프리온질병(Prion Diseases)으로 불려지고 있다. 이 질병은 변형 프리온 단백질 감염에 의한 신경세포의 공포변성과 중추신경조직의 해면상 변화가 특징으로 2년∼5년의 다양하고 긴 잠복기와 불안, 보행장애, 기립불능, 전신마비 등 임상증상을 보이다가 결국은 100% 폐사되는 치명적인 만성 진행성 질병이다."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="# 몰아보기"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_list_view_cow"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_width="406dp"
+        android:layout_height="418dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView46"
+        app:layout_constraintVertical_bias="0.98" />
 </androidx.constraintlayout.widget.ConstraintLayout>

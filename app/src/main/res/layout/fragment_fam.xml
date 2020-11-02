@@ -6,11 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".virus_detail.FAMFragment" >
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="460dp"
+        android:layout_height="227dp"
+        android:src="@drawable/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-17dp" />
+
+    <ImageView
+        android:id="@+id/go_virus5"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/textView33"
+        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/abc_vector_test"
+        app:tint="#70142709" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="구제역"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="385dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="28dp"
+        android:text="소, 돼지, 양, 염소 및 사슴 등 발굽이 둘로 갈라진 동물(우제류)에 감염되는 질병으로 전염성이 매우 강하며 입술, 혀, 잇몸, 코 또는 지간부 등에 물집(수포)이 생기며 체온이 급격히 상승되고 식욕이 저하되어 심하게 앓거나 어린 개체의 경우 폐사가 나타나는 질병이다."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="# 몰아보기"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_list_view_fam"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_width="415dp"
+        android:layout_height="405dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
 </androidx.constraintlayout.widget.ConstraintLayout>
