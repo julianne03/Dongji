@@ -8,51 +8,57 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_list_view_ai"
-        android:layout_width="417dp"
-        android:layout_height="382dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="460dp"
-        android:layout_height="227dp"
+        android:layout_width="440dp"
+        android:layout_height="226dp"
         android:src="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-19dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
         android:text="# 몰아보기"
+        android:textColor="#000000"
         android:textSize="25sp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="조류인플루엔자"
         android:textSize="25sp"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView34"
         android:layout_width="385dp"
-        android:layout_height="80dp"
+        android:layout_height="94dp"
         android:layout_marginTop="20dp"
+        android:lineSpacingExtra="8dp"
         android:text="조류인플루엔자 바이러스 감염에 의하여 발생하는 조류의 급성 전염병으로 닭․칠면조․오리 등 가금류에서 피해가 심하게 나타난다. 감염되어도 뚜렷한 증상이 없이 경과될 수 있기 때문에 방역 측면에서 볼 때 가장 주의하여야 할 가축전염병중 하나이다."
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
