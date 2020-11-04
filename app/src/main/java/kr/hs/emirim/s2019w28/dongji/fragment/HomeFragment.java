@@ -31,11 +31,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.hs.emirim.s2019w28.dongji.Adapter.PostRecyclerAdapter;
+import kr.hs.emirim.s2019w28.dongji.Adapter.StoryRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.NewPostActivity;
 import kr.hs.emirim.s2019w28.dongji.AddStoryActivity;
 import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.SetupActivity;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
+import kr.hs.emirim.s2019w28.dongji.model.Story;
 import kr.hs.emirim.s2019w28.dongji.model.User;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
@@ -43,11 +45,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private FloatingActionButton add_post;
     private RecyclerView post_list_view;
     private RecyclerView story_list_view;
+    private List<Story> story_list;
     private List<Post> post_list;
     private List<User> user_list;
 
     private FirebaseFirestore firebaseFirestore;
     private PostRecyclerAdapter postRecyclerAdapter;
+    private StoryRecyclerAdapter storyRecyclerAdapter;
     private FirebaseAuth firebaseAuth;
     private ImageView user_page;
 
@@ -64,6 +68,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
+        story_list = new ArrayList<>();
+
         post_list_view = mView.findViewById(R.id.post_list_view);
         story_list_view = mView.findViewById(R.id.story_list_view);
         add_post = mView.findViewById(R.id.add_post);
@@ -76,9 +82,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        storyRecyclerAdapter = new StoryRecyclerAdapter(story_list,user_list);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        story_list_view.setLayoutManager(layoutManager);
+        story_list_view.setAdapter(storyRecyclerAdapter);
+
+
         postRecyclerAdapter = new PostRecyclerAdapter(post_list,user_list);
         post_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
         post_list_view.setAdapter(postRecyclerAdapter);
+
 
         if(firebaseAuth.getCurrentUser() != null) {
 
