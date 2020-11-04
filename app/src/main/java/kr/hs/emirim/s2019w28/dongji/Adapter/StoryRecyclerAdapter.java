@@ -3,6 +3,7 @@ package kr.hs.emirim.s2019w28.dongji.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,17 +24,18 @@ import java.util.List;
 
 import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.StoryDetailActivity;
+import kr.hs.emirim.s2019w28.dongji.model.Story;
 import kr.hs.emirim.s2019w28.dongji.model.User;
 
 public class StoryRecyclerAdapter extends RecyclerView.Adapter<StoryRecyclerAdapter.ViewHolder> {
 
+    private List<Story> story_list;
     private List<User> user_list;
     private Context context;
 
-    private FirebaseFirestore firebaseFirestore;
-    private FirebaseAuth firebaseAuth;
 
-    public StoryRecyclerAdapter(List<User> user_list) {
+    public StoryRecyclerAdapter(List<Story> story_list, List<User> user_list) {
+        this.story_list = story_list;
         this.user_list = user_list;
     }
 
@@ -43,8 +45,6 @@ public class StoryRecyclerAdapter extends RecyclerView.Adapter<StoryRecyclerAdap
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.story_list_item,parent,false);
         context = parent.getContext();
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseAuth = FirebaseAuth.getInstance();
         return new ViewHolder(v);
     }
 
@@ -54,6 +54,7 @@ public class StoryRecyclerAdapter extends RecyclerView.Adapter<StoryRecyclerAdap
 
         holder.findId();
 
+        final String StoryId = story_list.get(position).StoryId;
         final String user_name = user_list.get(position).getName();
         final String user_image = user_list.get(position).getImage();
 
@@ -63,6 +64,7 @@ public class StoryRecyclerAdapter extends RecyclerView.Adapter<StoryRecyclerAdap
             @Override
             public void onClick(View v) {
                 Intent story_detail = new Intent(context, StoryDetailActivity.class);
+                story_detail.putExtra("story_id",StoryId);
                 story_detail.putExtra("user_name",user_name);
                 story_detail.putExtra("user_image",user_image);
                 context.startActivity(story_detail);

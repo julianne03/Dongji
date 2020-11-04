@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private RecyclerView post_list_view;
     private RecyclerView story_list_view;
     private List<Story> story_list;
+    private List<User> story_user_list;
     private List<Post> post_list;
     private List<User> user_list;
 
@@ -69,6 +71,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
         story_list = new ArrayList<>();
+        story_user_list = new ArrayList<>();
 
         post_list_view = mView.findViewById(R.id.post_list_view);
         story_list_view = mView.findViewById(R.id.story_list_view);
@@ -82,7 +85,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        storyRecyclerAdapter = new StoryRecyclerAdapter(story_list,user_list);
+        storyRecyclerAdapter = new StoryRecyclerAdapter(story_list,story_user_list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         story_list_view.setLayoutManager(layoutManager);
@@ -97,6 +100,47 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         if(firebaseAuth.getCurrentUser() != null) {
 
             firebaseFirestore = FirebaseFirestore.getInstance();
+
+            Query storyQuery = firebaseFirestore.collection("Storys")
+                    .orderBy("timestamp",Query.Direction.DESCENDING);
+
+            storyQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(firebaseAuth.getCurrentUser() != null) {
+                        if(!value.isEmpty()) {
+                            story_list.clear();
+                            story_user_list.clear();
+                        }
+                        if(error != null) {
+                            System.err.println(error);
+                        }
+
+                        for(DocumentChange doc : value.getDocumentChanges()) {
+
+                            if(doc.getType() == DocumentChange.Type.ADDED) {
+                                String story_id = doc.getDocument().getId();
+                                final Story story = doc.getDocument().toObject(Story.class).withId(story_id);
+                                String storyUserId = doc.getDocument().getString("user_id");
+                                firebaseFirestore.collection("Users").document(storyUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if(task.isSuccessful()) {
+                                            User user = task.getResult().toObject(User.class);
+                                            story_list.add(story);
+                                            story_user_list.add(user);
+                                            //Log.e("test",story_list.toString());
+                                            Log.e("test",story_user_list.toString());
+                                        }
+                                        storyRecyclerAdapter.notifyDataSetChanged();
+                                    }
+                                });
+                            }
+                        }
+
+                    }
+                }
+            });
 
             Query query = firebaseFirestore.collection("Posts")
                     .orderBy("timestamp",Query.Direction.DESCENDING);
@@ -129,6 +173,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                                             post_list.add(post);
                                             user_list.add(user);
+
                                         }
                                         postRecyclerAdapter.notifyDataSetChanged();
                                     }

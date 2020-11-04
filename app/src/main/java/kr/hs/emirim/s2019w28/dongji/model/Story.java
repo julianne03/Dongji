@@ -1,31 +1,27 @@
 package kr.hs.emirim.s2019w28.dongji.model;
 
-public class Story {
-    private String post_image, timestamp, user_id;
+import java.util.Date;
+
+public class Story extends kr.hs.emirim.s2019w28.dongji.model.StoryId {
+    private String post_image_uri, user_id;
+    private Date timestamp;
 
     public Story() {
 
     }
-    public Story(String post_image, String timestamp, String user_id) {
-        this.post_image = post_image;
-        this.timestamp = timestamp;
+
+    public Story(String post_image_uri, String user_id, Date timestamp) {
+        this.post_image_uri = post_image_uri;
         this.user_id = user_id;
-    }
-
-    public String getPost_image() {
-        return post_image;
-    }
-
-    public void setPost_image(String post_image) {
-        this.post_image = post_image;
-    }
-
-    public String getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getPost_image_uri() {
+        return post_image_uri;
+    }
+
+    public void setPost_image_uri(String post_image_uri) {
+        this.post_image_uri = post_image_uri;
     }
 
     public String getUser_id() {
@@ -34,5 +30,13 @@ public class Story {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 }
