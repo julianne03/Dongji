@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -58,7 +57,7 @@ public class AIFragment extends Fragment {
         go_virus1 = mView.findViewById(R.id.go_virus1);
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        post_list_view = mView.findViewById(R.id.post_list_view_ai);
+        post_list_view = mView.findViewById(R.id.post_list_view);
 
         firebaseAuth = FirebaseAuth.getInstance();
 

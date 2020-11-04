@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private ImageButton add_story;
     private FloatingActionButton add_post;
     private RecyclerView post_list_view;
+    private RecyclerView story_list_view;
     private List<Post> post_list;
     private List<User> user_list;
 
@@ -63,7 +64,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
-        post_list_view = mView.findViewById(R.id.post_list_view_ai);
+        post_list_view = mView.findViewById(R.id.post_list_view);
+        story_list_view = mView.findViewById(R.id.story_list_view);
         add_post = mView.findViewById(R.id.add_post);
         user_page = mView.findViewById(R.id.user_page);
         add_story = mView.findViewById(R.id.add_story);
