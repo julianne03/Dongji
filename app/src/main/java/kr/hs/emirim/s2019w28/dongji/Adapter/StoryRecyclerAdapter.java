@@ -1,6 +1,7 @@
 package kr.hs.emirim.s2019w28.dongji.Adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -12,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
+import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.model.Story;
 import kr.hs.emirim.s2019w28.dongji.model.User;
 
@@ -31,12 +33,18 @@ public class StoryRecyclerAdapter extends RecyclerView.Adapter<StoryRecyclerAdap
 
     @NonNull
     @Override
-    public StoryRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.story_list_item,parent,false);
+        context = parent.getContext();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull StoryRecyclerAdapter.ViewHolder holder, int position) {
+        holder.setIsRecyclable(false);
 
     }
 
@@ -47,9 +55,15 @@ public class StoryRecyclerAdapter extends RecyclerView.Adapter<StoryRecyclerAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
+        private View mView;
+
+
+        public ViewHolder(View v) {
+            super(v);
+            mView = v;
         }
+
+
 
     }
 }
