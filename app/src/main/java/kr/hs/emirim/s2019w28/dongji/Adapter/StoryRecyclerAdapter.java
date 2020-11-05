@@ -58,7 +58,12 @@ public class StoryRecyclerAdapter extends RecyclerView.Adapter<StoryRecyclerAdap
         final String user_name = user_list.get(position).getName();
         final String user_image = user_list.get(position).getImage();
 
+        Log.e("test","storyId : "+StoryId);
+        Log.e("test","user image : "+user_image);
+        Log.e("test","user name : "+user_name);
+
         holder.setUser(user_name,user_image);
+
 
         holder.story_item.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +107,9 @@ public class StoryRecyclerAdapter extends RecyclerView.Adapter<StoryRecyclerAdap
         }
 
         public void setUser(String name,String image) {
+
+            user_nickname = mView.findViewById(R.id.story_user_nickname);
+            user_image = mView.findViewById(R.id.story_user_image);
             user_nickname.setText(name);
             RequestOptions requestOptions = new RequestOptions();
             requestOptions.placeholder(R.drawable.ic_baseline_account_circle_24);

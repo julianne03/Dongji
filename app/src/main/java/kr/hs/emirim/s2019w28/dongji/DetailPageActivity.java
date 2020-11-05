@@ -20,6 +20,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
@@ -57,6 +59,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private TextView post_content;
     private EditText comment_field;
     private ImageView comment_send_btn;
+    private ImageView delete_btn;
 
     private ImageView detail_back_btn;
 
@@ -64,9 +67,11 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private FirebaseAuth firebaseAuth;
 
     private String post_id;
+    private String comment_id;
     private String user_name;
     private String user_image;
     private String current_user_id;
+    private String post_user_id;
 
     private ImageView help_btn;
     private TextView help_count;
@@ -86,10 +91,11 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         post_id = getIntent().getStringExtra("post_id");
         user_name = getIntent().getStringExtra("user_name");
         user_image = getIntent().getStringExtra("user_image");
+        post_user_id = getIntent().getStringExtra("post_user_id");
 
         //comments recyclerview
         commentsList = new ArrayList<>();
-        commentsRecyclerAdapter = new CommentsRecyclerAdapter(commentsList);
+        commentsRecyclerAdapter = new CommentsRecyclerAdapter(commentsList,post_id,comment_id);
         comment_list_view.setHasFixedSize(true);
         comment_list_view.setLayoutManager(new LinearLayoutManager(this));
         comment_list_view.setAdapter(commentsRecyclerAdapter);
@@ -153,8 +159,10 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                                 if (doc.getType() == DocumentChange.Type.ADDED) {
 
                                     String commentId = doc.getDocument().getId();
+                                    comment_id = commentId;
                                     Comments comments = doc.getDocument().toObject(Comments.class);
                                     commentsList.add(comments);
+                                    Log.e("comment",comments.toString());
                                     commentsRecyclerAdapter.notifyDataSetChanged();
 
                                 }
@@ -163,6 +171,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                     }
                 });
 
+        //add comments
         comment_send_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -220,6 +229,37 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+        //delete posts
+        delete_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("test","delete btn 눌려짐");
+                Log.e("test","current user id : "+current_user_id);
+                Log.e("test","user name:"+post_user_id);
+                if(current_user_id.equals(post_user_id)) {
+                    Log.e("test","if문 들어가짐");
+                    firebaseFirestore.collection("Posts").document(post_id)
+                            .delete()
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.e("test","delete success");
+                                    Toast.makeText(DetailPageActivity.this,"글을 성공적으로 삭제했습니다!",Toast.LENGTH_LONG).show();
+                                    Intent main = new Intent(DetailPageActivity.this,MainActivity.class);
+                                    startActivity(main);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(DetailPageActivity.this,"글을 삭제하는 도중에 오류가 발생했습니다!",Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+                //TODO 오류 수정하기
+                Toast.makeText(DetailPageActivity.this,"다른 사람의 글은 삭제하지 못합니다!",Toast.LENGTH_LONG);
+
+            }
+        });
 
 
         //help count
@@ -275,6 +315,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         comment_send_btn = findViewById(R.id.comment_send_btn);
         help_btn = findViewById(R.id.detail_help_btn);
         help_count = findViewById(R.id.detail_help_count);
+        delete_btn = findViewById(R.id.delete_btn);
 
     }
 

@@ -71,7 +71,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
         final String PostId = post_list.get(position).PostId;
         final String currentUserId = firebaseAuth.getCurrentUser().getUid();
 
-
+        final String postUserId = post_list.get(position).getUser_id();
         String postTitle = post_list.get(position).getPost_title();
         String postVirus = post_list.get(position).getVirus_category();
         String postImage = post_list.get(position).getPost_image();
@@ -165,6 +165,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
                 detail.putExtra("post_id",PostId);
                 detail.putExtra("user_name",userName);
                 detail.putExtra("user_image",userImage);
+                detail.putExtra("post_user_id",postUserId);
 
                 Log.e("test",PostId);
                 context.startActivity(detail);

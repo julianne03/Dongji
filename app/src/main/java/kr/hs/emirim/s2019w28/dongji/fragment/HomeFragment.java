@@ -122,6 +122,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                 String story_id = doc.getDocument().getId();
                                 final Story story = doc.getDocument().toObject(Story.class).withId(story_id);
                                 String storyUserId = doc.getDocument().getString("user_id");
+                                Log.e("test","storyUserId : "+storyUserId);
                                 firebaseFirestore.collection("Users").document(storyUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -129,7 +130,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                             User user = task.getResult().toObject(User.class);
                                             story_list.add(story);
                                             story_user_list.add(user);
-                                            //Log.e("test",story_list.toString());
+                                            Log.e("test",story_list.toString());
                                             Log.e("test",story_user_list.toString());
                                         }
                                         storyRecyclerAdapter.notifyDataSetChanged();

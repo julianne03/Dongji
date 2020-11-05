@@ -1,10 +1,13 @@
 package kr.hs.emirim.s2019w28.dongji.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -20,6 +25,7 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.List;
 
+import kr.hs.emirim.s2019w28.dongji.DetailPageActivity;
 import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.model.Comments;
 
@@ -29,9 +35,13 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
     public Context context;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
+    private String post_id;
+    private String comment_id;
 
-    public CommentsRecyclerAdapter(List<Comments> commentsList) {
+    public CommentsRecyclerAdapter(List<Comments> commentsList,String post_id,String comment_id) {
         this.commentsList = commentsList;
+        this.post_id = post_id;
+        this.comment_id = comment_id;
     }
 
     @NonNull
@@ -50,6 +60,8 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
     public void onBindViewHolder(@NonNull final CommentsRecyclerAdapter.ViewHolder holder, int position) {
         holder.setIsRecyclable(false);
 
+        final String CommentId = commentsList.get(position).CommentId;
+        final String comment_user_id = commentsList.get(position).getUser_id();
         String commentMessage = commentsList.get(position).getMessage();
         holder.setComment_message(commentMessage);
 
@@ -68,6 +80,28 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
                 }
             }
         });
+
+        holder.delete_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("comment",comment_id);
+                if (current_user_id.equals(comment_user_id)) {
+                    firebaseFirestore.collection("Posts/"+post_id+"/Comments").document(comment_id).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(context,"댓글이 삭제되었습니다!",Toast.LENGTH_LONG).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context,"자신이 작성한 댓글만 삭제됩니다!",Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+
+            }
+        });
+
     }
 
 
@@ -86,11 +120,13 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
 
         private TextView comment_user_name;
         private CircularImageView comment_user_image;
+        private ImageView delete_btn;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
+            delete_btn = mView.findViewById(R.id.comment_delete_btn);
         }
 
         public void setComment_message(String message) {
