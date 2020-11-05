@@ -30,12 +30,15 @@ import java.util.List;
 import kr.hs.emirim.s2019w28.dongji.Adapter.PostRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.fragment.VirusFragment;
+import kr.hs.emirim.s2019w28.dongji.virus_detail.more_info.Ai.InfoAiFragment;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 import kr.hs.emirim.s2019w28.dongji.model.User;
 
 public class AIFragment extends Fragment {
     private Fragment VirusFragment;
+    private Fragment InfoAiFragment;
     private ImageView go_virus1;
+    private ImageView detail_ai;
     private RecyclerView post_list_view;
     private List<Post> post_list;
     private List<User> user_list;
@@ -55,6 +58,7 @@ public class AIFragment extends Fragment {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_ai, container, false);
         go_virus1 = mView.findViewById(R.id.go_virus1);
+        detail_ai = mView.findViewById(R.id.detail_ai);
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
         post_list_view = mView.findViewById(R.id.post_list_view);
@@ -72,6 +76,17 @@ public class AIFragment extends Fragment {
                 VirusFragment = new VirusFragment();
 
                 getFragmentManager().beginTransaction().replace(R.id.fragment_container, VirusFragment).commit();
+            }
+        });
+
+
+        detail_ai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                InfoAiFragment = new InfoAiFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, InfoAiFragment).commit();
             }
         });
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".virus_detail.more_info.Ai.aFragment4">
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="349dp"
+        android:layout_height="327dp"
+        android:text="신고접수 : 관할 시장·구청장·읍장·면장, 시·도가축방역기관장 또는 가축위생방역지원본부장 신고방법 : 구두·서면 또는 전자문서 신고내용   1. 신고대상 가금의 소유자등의 성명 및 신고대상 가금의 사육 장소 또는 발견 장소   2. 신고대상 가금의 종류 및 수수   3. 질병명(수의사의 진단을 받지 아니한 때에는 신고자가 추정하는 병명 또는 발견당시의 상태)   4. 폐사 연월일(폐사 연월일이 분명하지 아니한 때에는 발견 연월일)   5. 신고자의 성명 및 주소   6. 그 밖에 가금이 죽거나 병든 원인 등 신고에 관하여 필요한 사항 조류인플루엔자의 주요 임상 증상   - 사료섭취 감소, 졸음, 폐사증가, 산란율감소   - 벼슬 또는 다리에 청색증, 안면 종창, 흰색 또는 녹색변"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="178dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
