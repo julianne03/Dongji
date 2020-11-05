@@ -168,6 +168,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                     }
                 });
 
+        //add comments
         comment_send_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -191,6 +192,10 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                 });
             }
         });
+
+        //delete comments
+
+
 
         //help btn click
         help_btn.setOnClickListener(new View.OnClickListener() {
@@ -225,6 +230,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+        //delete posts
         delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
