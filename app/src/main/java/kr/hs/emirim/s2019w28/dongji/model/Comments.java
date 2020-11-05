@@ -2,7 +2,7 @@ package kr.hs.emirim.s2019w28.dongji.model;
 
 import java.util.Date;
 
-public class Comments {
+public class Comments extends kr.hs.emirim.s2019w28.dongji.model.CommentId{
     private String message, user_id;
     private Date timestamp;
 

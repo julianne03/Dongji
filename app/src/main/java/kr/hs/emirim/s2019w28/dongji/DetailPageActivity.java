@@ -67,6 +67,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private FirebaseAuth firebaseAuth;
 
     private String post_id;
+    private String comment_id;
     private String user_name;
     private String user_image;
     private String current_user_id;
@@ -94,7 +95,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
         //comments recyclerview
         commentsList = new ArrayList<>();
-        commentsRecyclerAdapter = new CommentsRecyclerAdapter(commentsList);
+        commentsRecyclerAdapter = new CommentsRecyclerAdapter(commentsList,post_id,comment_id);
         comment_list_view.setHasFixedSize(true);
         comment_list_view.setLayoutManager(new LinearLayoutManager(this));
         comment_list_view.setAdapter(commentsRecyclerAdapter);
@@ -158,8 +159,10 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                                 if (doc.getType() == DocumentChange.Type.ADDED) {
 
                                     String commentId = doc.getDocument().getId();
+                                    comment_id = commentId;
                                     Comments comments = doc.getDocument().toObject(Comments.class);
                                     commentsList.add(comments);
+                                    Log.e("comment",comments.toString());
                                     commentsRecyclerAdapter.notifyDataSetChanged();
 
                                 }
@@ -192,10 +195,6 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                 });
             }
         });
-
-        //delete comments
-
-
 
         //help btn click
         help_btn.setOnClickListener(new View.OnClickListener() {
