@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/button_background"
     android:backgroundTint="#FFFFFF"
     tools:context=".SetupActivity">
 
@@ -27,17 +27,18 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="회원 닉네임"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/user_image"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <Button
         android:id="@+id/complete_btn"
-        android:layout_width="165dp"
-        android:layout_height="48dp"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/colorAccent"
+        android:background="@drawable/button_background"
+        android:backgroundTint="#C5E0B4"
         android:text="수정 완료"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,17 +46,20 @@
 
     <Button
         android:id="@+id/logout_btn"
-        android:layout_width="211dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="136dp"
-        android:backgroundTint="@color/colorAccent"
+        android:layout_width="165dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="#C5E0B4"
         android:text="로그아웃"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/user_out"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider3" />
+        app:layout_constraintTop_toBottomOf="@+id/complete_btn" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,7 +84,7 @@
         app:srcCompat="@drawable/abc_vector_test"
         app:tint="#c5e0b4" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -90,6 +94,17 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/set_up_back_btn" />
+
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+        android:id="@+id/textView52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="도움된 글"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
     <View
         android:id="@+id/divider"
@@ -106,11 +121,33 @@
         android:id="@+id/divider3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="284dp"
         android:background="#BDBDBD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <Button
+        android:id="@+id/user_out"
+        android:layout_width="165dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_background"
+        android:text="회원탈퇴"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/complete_btn" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/helpful_post_list_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
