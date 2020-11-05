@@ -117,11 +117,11 @@
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="105dp"
-        android:layout_height="127dp"
+        android:layout_width="198dp"
+        android:layout_height="158dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="28dp"
-        android:src="@drawable/animal_fever"
+        android:src="@drawable/animal_house"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
