@@ -94,10 +94,10 @@
                     android:id="@+id/detail_help_btn"
                     android:layout_width="46dp"
                     android:layout_height="47dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="40dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView26"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/delete_btn"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/help_icon" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -183,24 +183,33 @@
                     app:layout_constraintTop_toBottomOf="@+id/detail_post_user" />
 
                 <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
-                    android:id="@+id/textView26"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:text="도움 되셨나요?"
-                    android:textColor="#2979FF"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/detail_back_btn" />
-
-                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
                     android:id="@+id/detail_help_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="43dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="24dp"
                     android:text="0 help"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView26"
                     app:layout_constraintTop_toBottomOf="@+id/detail_help_btn" />
+
+                <ImageView
+                    android:id="@+id/delete_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/action_delete" />
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="삭제"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/delete_btn" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

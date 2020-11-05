@@ -130,7 +130,7 @@ public class AddStoryActivity extends AppCompatActivity {
 
 
                                         Map<String, Object> PostMap = new HashMap<>();
-                                        PostMap.put("post_image_uri", downloadUri);
+                                        PostMap.put("story_image", downloadUri);
                                         PostMap.put("user_id", user_id);
                                         PostMap.put("timestamp", FieldValue.serverTimestamp());
 

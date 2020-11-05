@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StoryDetailActivity"></activity>
+        <activity android:name=".StoryTestActivity">
+
+        </activity>
+        <activity android:name=".StoryDetailActivity" />
         <activity android:name=".SetupActivity" />
         <activity android:name=".DetailPageActivity" />
         <activity android:name=".AddStoryActivity" />
