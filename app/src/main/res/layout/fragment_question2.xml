@@ -118,23 +118,15 @@
 
     <Button
         android:id="@+id/next2_btn"
-        android:layout_width="151dp"
+        android:layout_width="237dp"
         android:layout_height="47dp"
+        android:layout_marginStart="144dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="150dp"
         android:background="@drawable/button_background"
         android:text="다음"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <Button
-        android:id="@+id/back1_btn"
-        android:layout_width="151dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/button_background"
-        android:text="이전"
-        app:layout_constraintEnd_toStartOf="@+id/next2_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

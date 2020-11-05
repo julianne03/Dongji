@@ -22,7 +22,7 @@ public class Question4 extends Fragment {
     Fragment Bad_Result;
     private RadioGroup radioGroup;
     private Button next4_btn;
-    private Button back3_btn;
+
     public String r1r2;
     public String r3;
     public String result4;
@@ -63,16 +63,10 @@ public class Question4 extends Fragment {
 
         radioGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
 
-        back3_btn = (Button) viewGroup.findViewById(R.id.back3_btn);
+
         next4_btn = (Button) viewGroup.findViewById(R.id.next4_btn);
 
 
-        back3_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.question_container, Question3).commit();
-            }
-        });
 
 
         next4_btn.setOnClickListener(new View.OnClickListener() {

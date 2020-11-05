@@ -10,23 +10,14 @@
 
     <Button
         android:id="@+id/next4_btn"
-        android:layout_width="151dp"
+        android:layout_width="237dp"
         android:layout_height="47dp"
+        android:layout_marginStart="144dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="150dp"
         android:background="@drawable/button_background"
         android:text="제출"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <Button
-        android:id="@+id/back3_btn"
-        android:layout_width="151dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/button_background"
-        android:text="이전"
-        app:layout_constraintEnd_toStartOf="@+id/next4_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 

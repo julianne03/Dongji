@@ -20,7 +20,7 @@ public class Question3 extends Fragment {
     Fragment Question4;
     private RadioGroup radioGroup;
     private Button next3_btn;
-    private Button back2_btn;
+
     public String result3;
 
 
@@ -45,7 +45,6 @@ public class Question3 extends Fragment {
         Question2 = new Question2();
         Question4 = new Question4();
         next3_btn = (Button) viewGroup.findViewById(R.id.next3_btn);
-        back2_btn = (Button) viewGroup.findViewById(R.id.back2_btn);
 
         radioGroup = (RadioGroup) viewGroup.findViewById(R.id.radioGroup);
 
@@ -78,12 +77,7 @@ public class Question3 extends Fragment {
 
             }
         });
-        back2_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.question_container, Question2).commit();
-            }
-        });
+
 
         return viewGroup;
     }
