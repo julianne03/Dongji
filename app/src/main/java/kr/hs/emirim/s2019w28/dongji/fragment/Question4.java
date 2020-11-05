@@ -78,7 +78,7 @@ public class Question4 extends Fragment {
                     Bundle bundle = new Bundle();
                     r1r2 = getArguments().getString("b_answer");
                     r3 = getArguments().getString("answer3");
-                    if(r1r2=="True"&&r3=="Yes" && result4=="Yes"){
+                    if(r1r2=="True"&&r3=="No" && result4=="Yes"){
                         getFragmentManager().beginTransaction().replace(R.id.question_container, Nice_Result).commit();
                     }else{
                         getFragmentManager().beginTransaction().replace(R.id.question_container, Bad_Result).commit();
