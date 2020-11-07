@@ -32,11 +32,14 @@ import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.fragment.VirusFragment;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 import kr.hs.emirim.s2019w28.dongji.model.User;
+import kr.hs.emirim.s2019w28.dongji.virus_detail.more_info.Pig.InfoPigFragment;
 
 public class PigFragment extends Fragment {
     private Fragment VirusFragment;
+    private Fragment InfoPigFragment;
     private ImageView go_virus6;
     private RecyclerView post_list_view;
+    private ImageView detail_pig;
     private List<Post> post_list;
     private List<User> user_list;
 
@@ -55,6 +58,7 @@ public class PigFragment extends Fragment {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_pig, container, false);
         go_virus6 = mView.findViewById(R.id.go_virus6);
+        detail_pig = mView.findViewById(R.id.detail_pig);
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
         post_list_view = mView.findViewById(R.id.post_list_view_pig);
@@ -69,6 +73,15 @@ public class PigFragment extends Fragment {
             }
         });
 
+        detail_pig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                InfoPigFragment = new InfoPigFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, InfoPigFragment).commit();
+            }
+        });
         firebaseAuth = FirebaseAuth.getInstance();
 
         postRecyclerAdapter = new PostRecyclerAdapter(post_list,user_list);
