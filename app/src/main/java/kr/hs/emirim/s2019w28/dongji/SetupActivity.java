@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -156,15 +157,18 @@ public class SetupActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
+                    Log.e("setup","if 1 pass");
                     if (ContextCompat.checkSelfPermission(SetupActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-
+                        Log.e("setup","if 2 pass");
                         ActivityCompat.requestPermissions(SetupActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+                        Log.e("setup","ask");
 
                     } else {
+                        Log.e("setup","success");
                         BringImagePicker();
                     }
                 } else {
+                    Log.e("setup","success");
                     BringImagePicker();
                 }
             }
