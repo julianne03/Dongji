@@ -103,12 +103,21 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(!task.getResult().exists()) {
+
+
                             firebaseFirestore.collection("Posts")
                                     .document(PostId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if(task.getResult().exists()) {
+
+                                        Post post = task.getResult().toObject(Post.class);
+
                                         Map<String,Object> helpsMap = new HashMap<>();
+                                        helpsMap.put("post_title", post.getPost_title());
+                                        helpsMap.put("post_content",post.getPost_content());
+                                        helpsMap.put("virus_category",post.getVirus_category());
+                                        helpsMap.put("post_image",post.getPost_image());
                                         helpsMap.put("user_id",currentUserId);
                                         helpsMap.put("timestamp",FieldValue.serverTimestamp());
 
