@@ -160,6 +160,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
                                     String commentId = doc.getDocument().getId();
                                     comment_id = commentId;
+
                                     Comments comments = doc.getDocument().toObject(Comments.class);
                                     commentsList.add(comments);
                                     Log.e("comment",comments.toString());

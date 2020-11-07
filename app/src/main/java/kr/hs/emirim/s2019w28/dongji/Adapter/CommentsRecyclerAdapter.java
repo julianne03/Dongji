@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -19,8 +20,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.List;
@@ -84,20 +89,50 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
         holder.delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("comment",comment_id);
-                if (current_user_id.equals(comment_user_id)) {
-                    firebaseFirestore.collection("Posts/"+post_id+"/Comments").document(comment_id).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Toast.makeText(context,"댓글이 삭제되었습니다!",Toast.LENGTH_LONG).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(context,"자신이 작성한 댓글만 삭제됩니다!",Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }
+                firebaseFirestore.collection("Posts/"+post_id+"/Comments")
+                        .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                                if (!value.isEmpty()) {
+
+                                    if (error != null) {
+                                        System.err.println(error);
+                                    }
+
+                                    for (DocumentChange doc : value.getDocumentChanges()) {
+                                        if (doc.getType() == DocumentChange.Type.ADDED) {
+
+                                            String commentId = doc.getDocument().getId();
+                                            comment_id = commentId;
+
+                                            Log.e("comment","comment id 2 : " +comment_id);
+
+                                            if (current_user_id.equals(comment_user_id)) {
+                                                firebaseFirestore.collection("Posts/"+post_id+"/Comments").document(comment_id).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        notifyDataSetChanged();
+                                                        Toast.makeText(context,"댓글이 삭제되었습니다!",Toast.LENGTH_LONG).show();
+
+                                                    }
+                                                }).addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Toast.makeText(context,"자신이 작성한 댓글만 삭제됩니다!",Toast.LENGTH_LONG).show();
+                                                    }
+                                                });
+                                            }
+
+
+                                        }
+                                    }
+                                }
+                            }
+                        });
+
+
+
+
 
             }
         });
