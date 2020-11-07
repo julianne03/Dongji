@@ -42,6 +42,7 @@ import java.util.Map;
 
 import kr.hs.emirim.s2019w28.dongji.Adapter.CommentsRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.model.Comments;
+import kr.hs.emirim.s2019w28.dongji.model.Post;
 import kr.hs.emirim.s2019w28.dongji.model.User;
 
 public class DetailPageActivity extends AppCompatActivity implements View.OnClickListener {
@@ -211,12 +212,22 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if(task.getResult().exists()) {
+
+                                        Post post = task.getResult().toObject(Post.class);
+
                                         Map<String,Object> helpsMap = new HashMap<>();
-                                        helpsMap.put("user_id",current_user_id);
+                                        helpsMap.put("post_title", post.getPost_title());
+                                        helpsMap.put("post_content",post.getPost_content());
+                                        helpsMap.put("virus_category",post.getVirus_category());
+                                        helpsMap.put("post_image",post.getPost_image());
+                                        helpsMap.put("user_id",post.getUser_id());
                                         helpsMap.put("timestamp",FieldValue.serverTimestamp());
 
                                         firebaseFirestore.collection("Posts/"+post_id+"/Helps")
                                                 .document(current_user_id).set(helpsMap);
+
+                                        firebaseFirestore.collection("Users/" + current_user_id + "/Helps")
+                                                .document(post_id).set(helpsMap);
 
                                     }
                                 }
@@ -224,6 +235,9 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                         } else {
                             firebaseFirestore.collection("Posts/"+post_id+"/Helps")
                                     .document(current_user_id).delete();
+
+                            firebaseFirestore.collection("Users/"+current_user_id+"/Helps")
+                                    .document(post_id).delete();
                         }
                     }
                 });
@@ -260,8 +274,6 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                         }
                     });
                 }
-                //TODO 오류 수정하기
-                Toast.makeText(DetailPageActivity.this,"다른 사람의 글은 삭제하지 못합니다!",Toast.LENGTH_LONG);
 
             }
         });
