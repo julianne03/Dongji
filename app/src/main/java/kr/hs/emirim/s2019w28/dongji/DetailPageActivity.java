@@ -230,6 +230,10 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+        if(current_user_id.equals(post_user_id)) {
+            delete_btn.setVisibility(View.VISIBLE);
+            findViewById(R.id.delete_post_text).setVisibility(View.VISIBLE);
+        }
         //delete posts
         delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override

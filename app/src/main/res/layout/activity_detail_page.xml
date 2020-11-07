@@ -189,7 +189,7 @@
                     android:layout_marginTop="3dp"
                     android:layout_marginEnd="24dp"
                     android:text="0 help"
-                    app:layout_constraintEnd_toStartOf="@+id/textView26"
+                    app:layout_constraintEnd_toStartOf="@+id/delete_post_text"
                     app:layout_constraintTop_toBottomOf="@+id/detail_help_btn" />
 
                 <ImageView
@@ -198,16 +198,18 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="8dp"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/action_delete" />
 
                 <TextView
-                    android:id="@+id/textView26"
+                    android:id="@+id/delete_post_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:text="삭제"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/delete_btn" />
 
