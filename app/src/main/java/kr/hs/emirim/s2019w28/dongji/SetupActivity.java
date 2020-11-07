@@ -48,6 +48,7 @@ public class SetupActivity extends AppCompatActivity {
     private EditText user_nickname;
     private Button complete_btn;
     private Button logout_btn;
+    private Button delete_account_btn;
     private ImageView back_btn;
 
     private StorageReference storageReference;
@@ -70,6 +71,7 @@ public class SetupActivity extends AppCompatActivity {
         complete_btn = findViewById(R.id.complete_btn);
         logout_btn = findViewById(R.id.logout_btn);
         back_btn = findViewById(R.id.set_up_back_btn);
+        delete_account_btn = findViewById(R.id.delete_user);
 
         firebaseFirestore.collection("Users").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -140,6 +142,7 @@ public class SetupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 firebaseAuth.signOut();
+                Toast.makeText(SetupActivity.this,"로그아웃 되셨습니다!",Toast.LENGTH_LONG).show();
                 Intent loginIntent = new Intent(SetupActivity.this, LoginActivity.class);
                 startActivity(loginIntent);
             }
@@ -149,6 +152,15 @@ public class SetupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        delete_account_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.getCurrentUser().delete();
+                Toast.makeText(SetupActivity.this,"회원 탈퇴하셨습니다ㅠㅠ",Toast.LENGTH_LONG).show();
+
             }
         });
 

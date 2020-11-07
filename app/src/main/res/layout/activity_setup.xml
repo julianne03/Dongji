@@ -54,7 +54,7 @@
         android:backgroundTint="#C5E0B4"
         android:text="로그아웃"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/user_out"
+        app:layout_constraintEnd_toStartOf="@+id/delete_user"
         app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/complete_btn" />
@@ -129,7 +129,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <Button
-        android:id="@+id/user_out"
+        android:id="@+id/delete_user"
         android:layout_width="165dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
