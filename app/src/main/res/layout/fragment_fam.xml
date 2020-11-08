@@ -41,18 +41,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
-        android:id="@+id/textView42"
-        android:layout_width="385dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="28dp"
-        android:lineSpacingExtra="8dp"
-        android:text="소, 돼지, 양, 염소 및 사슴 등 발굽이 둘로 갈라진 동물(우제류)에 감염되는 질병으로 전염성이 매우 강하며 입술, 혀, 잇몸, 코 또는 지간부 등에 물집(수포)이 생기며 체온이 급격히 상승되고 식욕이 저하되어 심하게 앓거나 어린 개체의 경우 폐사가 나타나는 질병이다."
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView41" />
-
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView43"
         android:layout_width="wrap_content"
@@ -76,4 +64,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <ImageView
+        android:id="@+id/detail_fam"
+        android:layout_width="184dp"
+        android:layout_height="154dp"
+        android:src="@drawable/fam"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView41"
+        app:srcCompat="@drawable/fam" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,6 +41,7 @@
         android:layout_height="172dp"
         android:layout_marginBottom="248dp"
         android:src="@drawable/checked"
+        android:tint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

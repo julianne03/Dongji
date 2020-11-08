@@ -31,6 +31,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/detail_brucella"
+        android:layout_width="143dp"
+        android:layout_height="167dp"
+        android:src="@drawable/brucella"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
@@ -54,19 +64,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/abc_vector_test"
         app:tint="#70142709" />
-
-    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
-        android:id="@+id/textView36"
-        android:layout_width="385dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="24dp"
-        android:lineSpacingExtra="8sp"
-        android:text="브루셀라증은 염소, 양, 돼지, 소 등 가축에 의해 전염된다. 보통 동물들 사이의 감염은 상처부위로 균이 침투하거나 오염된 사료 등에 의해 이루어진다. 브루셀라증은 전파속도가 매우 빨라 보통 가축 사이에 감염되면 피해가 매우 심하다."
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView37"

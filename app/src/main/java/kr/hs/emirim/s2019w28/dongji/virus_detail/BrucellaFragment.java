@@ -32,10 +32,13 @@ import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.fragment.VirusFragment;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 import kr.hs.emirim.s2019w28.dongji.model.User;
+import kr.hs.emirim.s2019w28.dongji.virus_detail.more_info.Brucella.InfoBrucellaFragment;
 
 public class BrucellaFragment extends Fragment {
     private Fragment VirusFragment;
+    private Fragment InfoBrucellaFragment;
     private ImageView go_virus2;
+    private ImageView detail_brucella;
     private RecyclerView post_list_view;
     private List<Post> post_list;
     private List<User> user_list;
@@ -55,6 +58,7 @@ public class BrucellaFragment extends Fragment {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_brucella, container, false);
         go_virus2 = mView.findViewById(R.id.go_virus2);
+        detail_brucella = mView.findViewById(R.id.detail_brucella);
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
         post_list_view = mView.findViewById(R.id.post_list_view_brucella);
@@ -66,6 +70,16 @@ public class BrucellaFragment extends Fragment {
                 VirusFragment = new VirusFragment();
 
                 getFragmentManager().beginTransaction().replace(R.id.fragment_container, VirusFragment).commit();
+            }
+        });
+
+        detail_brucella.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                InfoBrucellaFragment = new InfoBrucellaFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, InfoBrucellaFragment).commit();
             }
         });
 

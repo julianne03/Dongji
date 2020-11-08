@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout7"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".virus_detail.more_info.Brucella.bFragment2">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:id="@+id/textView70"
+        android:layout_width="389dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="44dp"
+        android:text="소, 돼지, 양, 염소와 같은 가축들이 주요 감염원으로 알려져 있으며, 감염된 가축의 분비물이나 태반 등에 의하여 피부 상처나 결막이 노출되어 감염되고 저온 살균되지 않은 유제품이나 감염 가축 섭취를 통해 감염되기도 한다."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

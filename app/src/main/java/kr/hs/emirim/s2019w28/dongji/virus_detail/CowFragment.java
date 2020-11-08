@@ -32,10 +32,13 @@ import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.fragment.VirusFragment;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 import kr.hs.emirim.s2019w28.dongji.model.User;
+import kr.hs.emirim.s2019w28.dongji.virus_detail.more_info.Cow.InfoCowFragment;
 
 public class CowFragment extends Fragment {
     private Fragment VirusFragment;
+    private Fragment InfoCowFragment;
     private ImageView go_virus3;
+    private ImageView detail_cow;
     private RecyclerView post_list_view;
     private List<Post> post_list;
     private List<User> user_list;
@@ -55,6 +58,7 @@ public class CowFragment extends Fragment {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_cow, container, false);
         go_virus3 = mView.findViewById(R.id.go_virus3);
+        detail_cow = mView.findViewById(R.id.detail_cow);
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
         post_list_view = mView.findViewById(R.id.post_list_view_cow);
@@ -66,6 +70,16 @@ public class CowFragment extends Fragment {
                 VirusFragment = new VirusFragment();
 
                 getFragmentManager().beginTransaction().replace(R.id.fragment_container, VirusFragment).commit();
+            }
+        });
+
+        detail_cow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                InfoCowFragment = new InfoCowFragment();
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, InfoCowFragment).commit();
             }
         });
 

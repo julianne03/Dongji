@@ -41,18 +41,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
-        android:id="@+id/textView45"
-        android:layout_width="373dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="24dp"
-        android:lineSpacingExtra="8dp"
-        android:text="소에서 발생하는 만성 신경성 질병으로서 일명 광우병 또는 프리온질병(Prion Diseases)으로 불려지고 있다. 이 질병은 변형 프리온 단백질 감염에 의한 신경세포의 공포변성과 중추신경조직의 해면상 변화가 특징으로 2년∼5년의 다양하고 긴 잠복기와 불안, 보행장애, 기립불능, 전신마비 등 임상증상을 보이다가 결국은 100% 폐사되는 치명적인 만성 진행성 질병이다."
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView44" />
-
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView46"
         android:layout_width="wrap_content"
@@ -76,4 +64,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView46"
         app:layout_constraintVertical_bias="0.98" />
+
+    <ImageView
+        android:id="@+id/detail_cow"
+        android:layout_width="161dp"
+        android:layout_height="180dp"
+        android:src="@drawable/detail_cow"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView44"
+        app:layout_constraintVertical_bias="0.444" />
 </androidx.constraintlayout.widget.ConstraintLayout>
