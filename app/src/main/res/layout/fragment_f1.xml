@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout13"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".virus_detail.more_info.Fam.fFragment1">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView86"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="261dp"
+        android:text="구제역이란?"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView91"
+        android:layout_width="335dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="28dp"
+        android:text="소, 돼지, 양, 염소 및 사슴 등 발굽이 둘로 갈라진 동물(우제류)에 감염되는 질병으로 전염성이 매우 강하며 입술, 혀, 잇몸, 코 또는 지간부 등에 물집(수포)이 생기며 체온이 급격히 상승되고 식욕이 저하되어 심하게 앓거나 어린 개체의 경우 폐사가 나타나는 질병이다. 세계동물보건기구(OIE)에서 지정한 중요 가축 전염병으로 가축전염병예방법 제1종 가축전염병에 속한다."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView86" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

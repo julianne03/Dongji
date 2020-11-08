@@ -26,7 +26,7 @@
         android:layout_width="352dp"
         android:layout_height="201dp"
         android:layout_marginTop="28dp"
-        android:text="브루셀라균에 의해 감염된 동물로부터 사람이 감염되어 발생하는 인수공통감염병이다. 브루셀라증은 감염 시 뚜렷한 특징이 엇다. 비특이적 증상이라고 하여 일반적인 질환들에서 나타나는 포괄적인 증상이 나타난다. 브루셀라증은 대개 가축에서 감염되므로 가축을 다루는 직업을 가지시는 분 중 발열, 발한, 피로감, 식욕 부진, 체중 감소, 두통 및 관절통 등의 증상이 나타나면 관할 보건솔 바로 연력을 해야한다. "
+        android:text="브루셀라균에 의해 감염된 동물로부터 사람이 감염되어 발생하는 인수공통감염병이다. 브루셀라증은 감염 시 뚜렷한 특징이 없다. 비특이적 증상이라고 하여 일반적인 질환들에서 나타나는 포괄적인 증상이 나타난다. 브루셀라증은 대개 가축에서 감염되므로 가축을 다루는 직업을 가지시는 분 중 발열, 발한, 피로감, 식욕 부진, 체중 감소, 두통 및 관절통 등의 증상이 나타나면 관할 보건소로 바로 연락을 해야한다. "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.271"
         app:layout_constraintStart_toStartOf="parent"

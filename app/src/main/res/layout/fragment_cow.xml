@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="440dp"
-        android:layout_height="260dp"
+        android:layout_width="431dp"
+        android:layout_height="237dp"
         android:src="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.518"
@@ -67,8 +67,8 @@
 
     <ImageView
         android:id="@+id/detail_cow"
-        android:layout_width="161dp"
-        android:layout_height="180dp"
+        android:layout_width="157dp"
+        android:layout_height="148dp"
         android:src="@drawable/detail_cow"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
