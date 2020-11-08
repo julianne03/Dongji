@@ -103,17 +103,29 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(!task.getResult().exists()) {
+
+
                             firebaseFirestore.collection("Posts")
                                     .document(PostId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if(task.getResult().exists()) {
+
+                                        Post post = task.getResult().toObject(Post.class);
+
                                         Map<String,Object> helpsMap = new HashMap<>();
-                                        helpsMap.put("user_id",currentUserId);
+                                        helpsMap.put("post_title", post.getPost_title());
+                                        helpsMap.put("post_content",post.getPost_content());
+                                        helpsMap.put("virus_category",post.getVirus_category());
+                                        helpsMap.put("post_image",post.getPost_image());
+                                        helpsMap.put("user_id",post.getUser_id());
                                         helpsMap.put("timestamp",FieldValue.serverTimestamp());
 
                                         firebaseFirestore.collection("Posts/"+PostId+"/Helps")
                                                 .document(currentUserId).set(helpsMap);
+
+                                        firebaseFirestore.collection("Users/" + currentUserId + "/Helps")
+                                                .document(PostId).set(helpsMap);
 
                                     }
                                 }
@@ -121,6 +133,9 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
                         } else {
                             firebaseFirestore.collection("Posts/"+PostId+"/Helps")
                                     .document(currentUserId).delete();
+
+                            firebaseFirestore.collection("Users/"+currentUserId+"/Helps")
+                                    .document(PostId).delete();
                         }
                     }
                 });

@@ -71,7 +71,7 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
         holder.setComment_message(commentMessage);
 
         final String current_user_id = firebaseAuth.getCurrentUser().getUid();
-        firebaseFirestore.collection("Users").document(current_user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        firebaseFirestore.collection("Users").document(comment_user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()) {
@@ -85,6 +85,34 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
                 }
             }
         });
+
+        //comment delete btn show or not
+        firebaseFirestore.collection("Posts/"+post_id+"/Comments")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                                         @Override
+                                         public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                                             if (!value.isEmpty()) {
+
+                                                 if (error != null) {
+                                                     System.err.println(error);
+                                                 }
+
+                                                 for (DocumentChange doc : value.getDocumentChanges()) {
+                                                     if (doc.getType() == DocumentChange.Type.ADDED) {
+
+                                                         String commentId = doc.getDocument().getId();
+                                                         comment_id = commentId;
+
+                                                         Log.e("comment", "comment id 2 : " + comment_id);
+
+                                                         if (current_user_id.equals(comment_user_id)) {
+                                                            holder.delete_btn.setVisibility(View.VISIBLE);
+                                                         }
+                                                     }
+                                                 }
+                                             }
+                                         }
+                                     });
 
         holder.delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
