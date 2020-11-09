@@ -9,13 +9,12 @@
 
     <TextView
         android:id="@+id/textView90"
-        android:layout_width="356dp"
-        android:layout_height="180dp"
+        android:layout_width="355dp"
+        android:layout_height="302dp"
         android:text="감염은 일반적으로 감염된 동물의 이동에 의해 이루어진다. 감염동물의 수포액이나 콧물, 침, 유즙, 정액, 호흡 및 분변 등의 접촉이 감염 경로가 되며 감염 동물 유래의 축산물에 의한 전파도 가능하다. 또한 감염된 동물과 접촉하거나 오염된 지역을 출입한 사람과 차량 그리고 이와 관련된 의복, 사료, 물, 기구 등을 통해서도 전파가 일어난다. 공기를 통한 전파의 경우 육지에서는 50km, 바다를 통해서는 250km 이상까지 전파된 보고가 있다. 특히, 감염축은 구제역 증상을 나타내기 전에도 이미 바이러스를 배출하기 시작하면서 질병을 전파할 수 있으므로 특별한 주의가 필요하다."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintVertical_bias="0.207" />
 </androidx.constraintlayout.widget.ConstraintLayout>
