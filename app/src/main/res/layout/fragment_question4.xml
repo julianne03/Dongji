@@ -17,6 +17,8 @@
         android:layout_marginEnd="150dp"
         android:background="@drawable/button_background"
         android:text="제출"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -68,13 +70,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/number4_selected" />
 
-    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="120dp"
         android:text="질문 4"
+        android:textColor="#000000"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,6 +126,7 @@
         android:layout_marginTop="16dp"
         android:padding="20dp"
         android:text="주기적으로 축사 내부를 소독하셨나요?"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
