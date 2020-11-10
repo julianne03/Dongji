@@ -1,14 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout20"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".virus_detail.more_info.Cow.cFragment4">
+    tools:context=".virus_detail.more_info.Cow.cFragment4" >
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView107"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="소의 광우병"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView110"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="인간 광우병"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="364dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/button_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView107" />
+
+    <TextView
+        android:id="@+id/textView108"
+        android:layout_width="365dp"
+        android:layout_height="193dp"
+        android:text="진전병에 걸린 양을 동물성 사료로 만들어 초식 동물인 소에게 사료로 먹이면서 감염된 것으로 추정되고 있다. 이러한 동물성사료의 광우병 인자에 노출된 소는 2~8년의 잠복기를 거쳐 발병하였다고 추정된다.  소들은 서로 다른 증상을 보이는 데, 신경질적이고 공격적인 행동을 보이기도 하며, 자세가 비정상적이며, 걸을 때에는 중심을 잡지 못하고 앉았다가 일어서지 못한다.  우유의 생산량이 줄어들고, 식욕은 정상인데 무게는 줄어든다.  이러한 증세가 2주~6개월 정도 계속되다가 결국엔 죽게 된다."
+        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="@+id/imageView11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/imageView11"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="364dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/button_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView110" />
+
+    <TextView
+        android:id="@+id/textView111"
+        android:layout_width="337dp"
+        android:layout_height="190dp"
+        android:text="인간 광우병은 광우병에 걸린 혹은 광우병 인자를 가지고 있는 소를 섭취하면서 발생된다고 추정하고 있다.  광우병에 감염된 소를 퇴비로 써서 자란 식물을 먹고 감염된 것으로 추정된 사람도 보고되었다.  인간 광우병은 5~10년의 잠복기를 거친 후에 발생한다고 알려져 있다.  초기 증상은 기억감퇴증, 불면증, 우울증 등의 치매증상과 유사하나 발현되는 연령이 20~30대 등으로 일반 치매 환자들보다 젊다는 특징을 가지고 있다.  중기에는 제대로 걷지 못하다가, 말기에는 사망에 이르게 된다."
+        app:layout_constraintBottom_toBottomOf="@+id/imageView24"
+        app:layout_constraintEnd_toEndOf="@+id/imageView24"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="@+id/imageView24"
+        app:layout_constraintTop_toTopOf="@+id/imageView24"
+        app:layout_constraintVertical_bias="0.25" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
