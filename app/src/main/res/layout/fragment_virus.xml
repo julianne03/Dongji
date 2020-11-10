@@ -11,87 +11,79 @@
     <ImageButton
         android:id="@+id/btn_pig"
         android:layout_width="185dp"
-        android:layout_height="110dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="65dp"
         android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
         android:src="@drawable/pig"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintStart_toEndOf="@+id/btn_Ai"
+        app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
     <ImageButton
         android:id="@+id/btn_etc"
         android:layout_width="188dp"
         android:layout_height="119dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
         android:src="@drawable/etc"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_cattle"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cow"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cow" />
 
     <ImageButton
         android:id="@+id/btn_cow"
         android:layout_width="190dp"
         android:layout_height="116dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
         android:src="@drawable/cattle2"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_brucella"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pig"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_pig" />
 
     <ImageButton
         android:id="@+id/btn_Ai"
         android:layout_width="189dp"
         android:layout_height="134dp"
         android:layout_marginStart="14dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/imgbtn_background"
         android:scaleType="centerCrop"
         android:src="@drawable/chicken"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_pig"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.237" />
+        app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
     <ImageButton
         android:id="@+id/btn_cattle"
-        android:layout_width="187dp"
+        android:layout_width="189dp"
         android:layout_height="119dp"
-        android:layout_marginEnd="204dp"
+        android:layout_marginStart="14dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
         android:src="@drawable/cattle1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_brucella"
-        app:layout_constraintVertical_bias="0.059" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_brucella" />
 
     <ImageButton
         android:id="@+id/btn_brucella"
-        android:layout_width="187dp"
+        android:layout_width="189dp"
         android:layout_height="119dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="204dp"
+        android:layout_marginStart="16dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
         android:src="@drawable/lamb"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Ai" />
 
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
