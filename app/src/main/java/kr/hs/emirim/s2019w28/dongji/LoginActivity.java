@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                                         login_progress.setVisibility(View.GONE);
                                         sendToMain();
                                     } else {
+                                        login_progress.setVisibility(View.INVISIBLE);
                                         String error = task.getException().getMessage();
                                         Toast.makeText(LoginActivity.this, "Error : "+error,Toast.LENGTH_LONG).show();
                                     }
