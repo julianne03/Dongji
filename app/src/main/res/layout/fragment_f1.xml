@@ -32,4 +32,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView86" />
 
+    <HorizontalScrollView
+        android:layout_width="405dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView91">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/img_fam" />
+        </LinearLayout>
+    </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
