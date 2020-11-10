@@ -45,8 +45,8 @@ public class InfoPigFragment extends Fragment {
         tabs = mView.findViewById(R.id.tabs);
         tabs.addTab(tabs.newTab().setText("정보"));
         tabs.addTab(tabs.newTab().setText("전파방법"));
-        tabs.addTab(tabs.newTab().setText("소독요령"));
-        tabs.addTab(tabs.newTab().setText("신고요령"));
+        tabs.addTab(tabs.newTab().setText("임상증상"));
+        tabs.addTab(tabs.newTab().setText("아프리카         돼지열병"));
 
         getFragmentManager().beginTransaction().replace(R.id.contatiner, pfragment1).commit();
 

@@ -45,8 +45,8 @@ public class InfoFamFragment extends Fragment {
         tabs = mView.findViewById(R.id.tabs);
         tabs.addTab(tabs.newTab().setText("정보"));
         tabs.addTab(tabs.newTab().setText("전파방법"));
-        tabs.addTab(tabs.newTab().setText("소독요령"));
-        tabs.addTab(tabs.newTab().setText("신고요령"));
+        tabs.addTab(tabs.newTab().setText("농가지침"));
+        tabs.addTab(tabs.newTab().setText("백신"));
 
         getFragmentManager().beginTransaction().replace(R.id.contatiner, ffragment1).commit();
 
