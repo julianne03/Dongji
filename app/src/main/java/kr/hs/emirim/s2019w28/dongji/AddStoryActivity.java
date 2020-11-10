@@ -147,14 +147,6 @@ public class AddStoryActivity extends AppCompatActivity {
                                             }
                                         });
 
-                                        firebaseFirestore.collection("Storys/" + user_id + "/posts").add(PostMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<DocumentReference> task) {
-                                                if (task.isSuccessful()) {
-                                                    Log.e("Story", "Story 데이터베이스에 추가됨.");
-                                                }
-                                            }
-                                        });
                                     }
                                 });
                             }
