@@ -219,9 +219,37 @@ public class SetupActivity extends AppCompatActivity {
         delete_account_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseFirestore.collection("Users").document(user_id).delete();
-                firebaseAuth.getCurrentUser().delete();
-                Toast.makeText(SetupActivity.this,"회원 탈퇴하셨습니다ㅠㅠ",Toast.LENGTH_LONG).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(SetupActivity.this);
+                builder.setTitle("회원탈퇴").setMessage("정말 회원탈퇴 하시겠습니까?");
+
+                builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        firebaseFirestore.collection("Users").document(user_id).delete();
+                        firebaseAuth.getCurrentUser().delete();
+                        Toast.makeText(SetupActivity.this,"회원 탈퇴하셨습니다ㅠㅠ",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                });
+
+                final AlertDialog alertDialog = builder.create();
+
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+                        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+                    }
+                });
+                alertDialog.show();
+
 
             }
         });
