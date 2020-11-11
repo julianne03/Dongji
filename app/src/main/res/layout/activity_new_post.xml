@@ -58,6 +58,7 @@
                     android:inputType="textLongMessage|textMultiLine"
                     android:maxLines="4"
                     android:scrollbars="vertical"
+                    android:textCursorDrawable="@drawable/cursor_color"
                     android:singleLine="false"
                     android:textSize="17sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -96,6 +97,7 @@
                     android:ems="10"
                     android:hint="글 제목"
                     android:inputType="textPersonName"
+                    android:textCursorDrawable="@drawable/cursor_color"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView9" />

@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -63,6 +64,7 @@ public class SetupActivity extends AppCompatActivity {
     private Button logout_btn;
     private Button delete_account_btn;
     private ImageView back_btn;
+    private ProgressBar setup_progress;
 
     private RecyclerView helpful_post_list_view;
     private List<Post> post_list;
@@ -90,6 +92,7 @@ public class SetupActivity extends AppCompatActivity {
         logout_btn = findViewById(R.id.logout_btn);
         back_btn = findViewById(R.id.set_up_back_btn);
         delete_account_btn = findViewById(R.id.delete_user);
+        setup_progress = findViewById(R.id.setup_progress);
 
         helpful_post_list_view = findViewById(R.id.helpful_post_list_view);
 
@@ -126,6 +129,8 @@ public class SetupActivity extends AppCompatActivity {
         complete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                setup_progress.setVisibility(View.VISIBLE);
                 final String user_name = user_nickname.getText().toString();
 
                 if(!TextUtils.isEmpty(user_name) && userImageURI!=null) {
@@ -284,6 +289,7 @@ public class SetupActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+                    setup_progress.setVisibility(View.INVISIBLE);
                     Toast.makeText(SetupActivity.this, "변경 내용이 성공적으로 업데이트 되었습니다.", Toast.LENGTH_LONG).show();
                     Intent mainIntent = new Intent(SetupActivity.this, MainActivity.class);
                     mainIntent.putExtra("userImageUri",userImageURI);
