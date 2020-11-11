@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -273,35 +276,63 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onClick(View v) {
                 Log.e("test","delete btn 눌려짐");
-                Log.e("test","current user id : "+current_user_id);
-                Log.e("test","user name:"+post_user_id);
-                if(current_user_id.equals(post_user_id)) {
-                    Log.e("test","if문 들어가짐");
-                    firebaseFirestore.collection("Posts").document(post_id)
-                            .delete()
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(DetailPageActivity.this);
+                builder.setTitle("글 삭제").setMessage("정말 글을 삭제하시겠습니까?");
+
+                builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Log.e("test","current user id : "+current_user_id);
+                        Log.e("test","user name:"+post_user_id);
+                        if(current_user_id.equals(post_user_id)) {
+                            Log.e("test","if문 들어가짐");
+                            firebaseFirestore.collection("Posts").document(post_id)
+                                    .delete()
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.e("test","delete success");
+                                            Toast.makeText(DetailPageActivity.this,"글을 성공적으로 삭제했습니다!",Toast.LENGTH_LONG).show();
+                                            Intent main = new Intent(DetailPageActivity.this,MainActivity.class);
+                                            startActivity(main);
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(DetailPageActivity.this,"글을 삭제하는 도중에 오류가 발생했습니다!",Toast.LENGTH_LONG).show();
+                                }
+                            });
+
+                            firebaseFirestore.collection("Users/"+current_user_id+"/posts")
+                                    .document(post_id).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Log.e("test","delete success");
-                                    Toast.makeText(DetailPageActivity.this,"글을 성공적으로 삭제했습니다!",Toast.LENGTH_LONG).show();
-                                    Intent main = new Intent(DetailPageActivity.this,MainActivity.class);
-                                    startActivity(main);
+                                    Log.e("post delete","Users의 post 삭제 완료");
                                 }
-                            }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(DetailPageActivity.this,"글을 삭제하는 도중에 오류가 발생했습니다!",Toast.LENGTH_LONG).show();
+                            });
                         }
-                    });
+                    }
+                });
 
-                    firebaseFirestore.collection("Users/"+current_user_id+"/posts")
-                            .document(post_id).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.e("post delete","Users의 post 삭제 완료");
-                        }
-                    });
-                }
+                builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                });
+
+                final AlertDialog alertDialog = builder.create();
+
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+                        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+                    }
+                });
+                alertDialog.show();
+
 
             }
         });

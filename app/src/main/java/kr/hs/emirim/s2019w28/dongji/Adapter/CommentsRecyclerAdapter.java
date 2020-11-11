@@ -1,6 +1,10 @@
 package kr.hs.emirim.s2019w28.dongji.Adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +35,7 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 import java.util.List;
 
 import kr.hs.emirim.s2019w28.dongji.DetailPageActivity;
+import kr.hs.emirim.s2019w28.dongji.MainActivity;
 import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.model.Comments;
 
@@ -97,26 +102,56 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
         holder.delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (current_user_id.equals(comment_user_id)) {
-                    firebaseFirestore.collection("Posts/" + post_id + "/Comments").document(CommentId).delete()
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("댓글 삭제").setMessage("정말 댓글을 삭제하시겠습니까?");
+
+                builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        if (current_user_id.equals(comment_user_id)) {
+                            firebaseFirestore.collection("Posts/" + post_id + "/Comments").document(CommentId).delete()
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            // notifyDataSetChanged();
+                                            commentsList.remove(position);
+                                            notifyItemRemoved(position);
+                                            notifyDataSetChanged();
+
+                                            Toast.makeText(context, "댓글이 삭제되었습니다!", Toast.LENGTH_LONG).show();
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
                                 @Override
-                                public void onSuccess(Void aVoid) {
-                                    // notifyDataSetChanged();
-                                    commentsList.remove(position);
-                                    notifyItemRemoved(position);
-                                    notifyDataSetChanged();
-
-                                    Toast.makeText(context, "댓글이 삭제되었습니다!", Toast.LENGTH_LONG).show();
-
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(context, "자신이 작성한 댓글만 삭제됩니다!", Toast.LENGTH_LONG).show();
                                 }
-                            }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(context, "자신이 작성한 댓글만 삭제됩니다!", Toast.LENGTH_LONG).show();
+                            });
                         }
-                    });
-                }
+
+                    }
+                });
+
+                builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                });
+
+                final AlertDialog alertDialog = builder.create();
+
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+                        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+                    }
+                });
+                alertDialog.show();
+
             }
         });
     }
