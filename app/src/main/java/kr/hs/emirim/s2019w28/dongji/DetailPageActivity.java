@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -39,6 +40,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import kr.hs.emirim.s2019w28.dongji.Adapter.CommentsRecyclerAdapter;
 import kr.hs.emirim.s2019w28.dongji.model.Comments;
@@ -178,23 +180,36 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onClick(View v) {
 
+
                 String comment_message = comment_field.getText().toString();
-                Map<String,Object> commentsMap = new HashMap<>();
-                commentsMap.put("message",comment_message);
-                commentsMap.put("user_id",current_user_id);
-                commentsMap.put("timestamp", FieldValue.serverTimestamp());
+                if(!TextUtils.isEmpty(comment_message)) {
+                    Map<String,Object> commentsMap = new HashMap<>();
+                    commentsMap.put("message",comment_message);
+                    commentsMap.put("user_id",current_user_id);
+                    commentsMap.put("timestamp", FieldValue.serverTimestamp());
 
-                firebaseFirestore.collection("Posts/" + post_id + "/Comments").add(commentsMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(DetailPageActivity.this, "에러 발생: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    String randomName = UUID.randomUUID().toString();
 
-                        }else {
-                            comment_field.setText("");
-                        }
-                    }
-                });
+                    firebaseFirestore.collection("Posts/" + post_id + "/Comments")
+                            .document(randomName)
+                            .set(commentsMap)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(DetailPageActivity.this, "에러 발생: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
+                                    }else {
+                                        Toast.makeText(DetailPageActivity.this, "댓글이 추가되었습니다!", Toast.LENGTH_LONG).show();
+                                        comment_field.setText("");
+                                    }
+                                }
+                            });
+
+                } else {
+                    Toast.makeText(DetailPageActivity.this, "댓글을 작성해주세요!", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
@@ -271,6 +286,14 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(DetailPageActivity.this,"글을 삭제하는 도중에 오류가 발생했습니다!",Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                    firebaseFirestore.collection("Users/"+current_user_id+"/posts")
+                            .document(post_id).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.e("post delete","Users의 post 삭제 완료");
                         }
                     });
                 }

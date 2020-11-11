@@ -62,7 +62,7 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final CommentsRecyclerAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CommentsRecyclerAdapter.ViewHolder holder, final int position) {
         holder.setIsRecyclable(false);
 
         final String CommentId = commentsList.get(position).CommentId;
@@ -126,41 +126,42 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
                                     if (error != null) {
                                         System.err.println(error);
                                     }
-
+                                    String comment_new_id = comment_id;
                                     for (DocumentChange doc : value.getDocumentChanges()) {
                                         if (doc.getType() == DocumentChange.Type.ADDED) {
 
                                             String commentId = doc.getDocument().getId();
                                             comment_id = commentId;
-
+                                            comment_new_id = comment_id;
                                             Log.e("comment","comment id 2 : " +comment_id);
 
-                                            if (current_user_id.equals(comment_user_id)) {
-                                                firebaseFirestore.collection("Posts/"+post_id+"/Comments").document(comment_id).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                    @Override
-                                                    public void onSuccess(Void aVoid) {
-                                                        notifyDataSetChanged();
-                                                        Toast.makeText(context,"댓글이 삭제되었습니다!",Toast.LENGTH_LONG).show();
-
-                                                    }
-                                                }).addOnFailureListener(new OnFailureListener() {
-                                                    @Override
-                                                    public void onFailure(@NonNull Exception e) {
-                                                        Toast.makeText(context,"자신이 작성한 댓글만 삭제됩니다!",Toast.LENGTH_LONG).show();
-                                                    }
-                                                });
-                                            }
-
-
                                         }
+                                    }
+                                    if (current_user_id.equals(comment_user_id)) {
+                                        firebaseFirestore.collection("Posts/"+post_id+"/Comments").document(comment_new_id).delete()
+
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                               // notifyDataSetChanged();
+                                                Log.e("comment","position :"+position);
+                                                commentsList.remove(position);
+                                                notifyItemRemoved(position);
+                                                notifyDataSetChanged();
+
+                                                Toast.makeText(context,"댓글이 삭제되었습니다!",Toast.LENGTH_LONG).show();
+
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(context,"자신이 작성한 댓글만 삭제됩니다!",Toast.LENGTH_LONG).show();
+                                            }
+                                        });
                                     }
                                 }
                             }
                         });
-
-
-
-
 
             }
         });

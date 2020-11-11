@@ -84,18 +84,19 @@
         app:srcCompat="@drawable/abc_vector_test"
         app:tint="#c5e0b4" />
 
-    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="회원 정보"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/set_up_back_btn" />
 
-    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView52"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,6 +104,7 @@
         android:layout_marginTop="24dp"
         android:text="도움된 글"
         android:textSize="24sp"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
