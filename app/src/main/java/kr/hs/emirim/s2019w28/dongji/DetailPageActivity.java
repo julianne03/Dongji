@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -68,6 +69,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
 
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
+    private CollectionReference collectionReference;
 
     private String post_id;
     private String comment_id;
@@ -84,6 +86,8 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_page);
 
+        post_id = getIntent().getStringExtra("post_id");
+
         init();
         findId();
 
@@ -91,14 +95,13 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
         comment_send_btn.setOnClickListener(this);
 
         current_user_id = firebaseAuth.getCurrentUser().getUid();
-        post_id = getIntent().getStringExtra("post_id");
         user_name = getIntent().getStringExtra("user_name");
         user_image = getIntent().getStringExtra("user_image");
         post_user_id = getIntent().getStringExtra("post_user_id");
 
         //comments recyclerview
         commentsList = new ArrayList<>();
-        commentsRecyclerAdapter = new CommentsRecyclerAdapter(commentsList,post_id,comment_id);
+        commentsRecyclerAdapter = new CommentsRecyclerAdapter(commentsList,post_id);
         comment_list_view.setHasFixedSize(true);
         comment_list_view.setLayoutManager(new LinearLayoutManager(this));
         comment_list_view.setAdapter(commentsRecyclerAdapter);
@@ -180,6 +183,9 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onClick(View v) {
 
+                String newDocID = collectionReference.document().getId();
+
+                Log.d("comment","newDocID : "+newDocID);
 
                 String comment_message = comment_field.getText().toString();
                 if(!TextUtils.isEmpty(comment_message)) {
@@ -187,11 +193,11 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                     commentsMap.put("message",comment_message);
                     commentsMap.put("user_id",current_user_id);
                     commentsMap.put("timestamp", FieldValue.serverTimestamp());
+                    commentsMap.put("comment_id",newDocID);
 
-                    String randomName = UUID.randomUUID().toString();
 
-                    firebaseFirestore.collection("Posts/" + post_id + "/Comments")
-                            .document(randomName)
+                    firebaseFirestore.collection("Posts/"+post_id+"/Comments")
+                            .document(newDocID)
                             .set(commentsMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -205,7 +211,6 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                                     }
                                 }
                             });
-
                 } else {
                     Toast.makeText(DetailPageActivity.this, "댓글을 작성해주세요!", Toast.LENGTH_LONG).show();
                 }
@@ -340,6 +345,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
     private void init() {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+        collectionReference = FirebaseFirestore.getInstance().collection("Posts/"+post_id+"/Comments");
     }
 
     private void findId() {

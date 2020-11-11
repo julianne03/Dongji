@@ -43,10 +43,9 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
     private String post_id;
     private String comment_id;
 
-    public CommentsRecyclerAdapter(List<Comments> commentsList,String post_id,String comment_id) {
+    public CommentsRecyclerAdapter(List<Comments> commentsList,String post_id) {
         this.commentsList = commentsList;
         this.post_id = post_id;
-        this.comment_id = comment_id;
     }
 
     @NonNull
@@ -65,17 +64,19 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
     public void onBindViewHolder(@NonNull final CommentsRecyclerAdapter.ViewHolder holder, final int position) {
         holder.setIsRecyclable(false);
 
-        final String CommentId = commentsList.get(position).CommentId;
+        final String CommentId = commentsList.get(position).getComment_id();
         final String comment_user_id = commentsList.get(position).getUser_id();
         String commentMessage = commentsList.get(position).getMessage();
         holder.setComment_message(commentMessage);
+
+        Log.d("comment", "comment CommentId : " + CommentId);
 
         final String current_user_id = firebaseAuth.getCurrentUser().getUid();
         firebaseFirestore.collection("Users").document(comment_user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
+                if (task.isSuccessful()) {
+                    if (task.getResult().exists()) {
                         final String name = task.getResult().getString("name");
                         final String image = task.getResult().getString("image");
 
@@ -87,85 +88,37 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
         });
 
         //comment delete btn show or not
-        firebaseFirestore.collection("Posts/"+post_id+"/Comments")
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                                         @Override
-                                         public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                                             if (!value.isEmpty()) {
 
-                                                 if (error != null) {
-                                                     System.err.println(error);
-                                                 }
+        if (current_user_id.equals(comment_user_id)) {
+            holder.delete_btn.setVisibility(View.VISIBLE);
+        }
 
-                                                 for (DocumentChange doc : value.getDocumentChanges()) {
-                                                     if (doc.getType() == DocumentChange.Type.ADDED) {
-
-                                                         String commentId = doc.getDocument().getId();
-                                                         comment_id = commentId;
-
-                                                         Log.e("comment", "comment id 2 : " + comment_id);
-
-                                                         if (current_user_id.equals(comment_user_id)) {
-                                                            holder.delete_btn.setVisibility(View.VISIBLE);
-                                                         }
-                                                     }
-                                                 }
-                                             }
-                                         }
-                                     });
 
         holder.delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseFirestore.collection("Posts/"+post_id+"/Comments")
-                        .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                            @Override
-                            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                                if (!value.isEmpty()) {
+                if (current_user_id.equals(comment_user_id)) {
+                    firebaseFirestore.collection("Posts/" + post_id + "/Comments").document(CommentId).delete()
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    // notifyDataSetChanged();
+                                    commentsList.remove(position);
+                                    notifyItemRemoved(position);
+                                    notifyDataSetChanged();
 
-                                    if (error != null) {
-                                        System.err.println(error);
-                                    }
-                                    String comment_new_id = comment_id;
-                                    for (DocumentChange doc : value.getDocumentChanges()) {
-                                        if (doc.getType() == DocumentChange.Type.ADDED) {
+                                    Toast.makeText(context, "댓글이 삭제되었습니다!", Toast.LENGTH_LONG).show();
 
-                                            String commentId = doc.getDocument().getId();
-                                            comment_id = commentId;
-                                            comment_new_id = comment_id;
-                                            Log.e("comment","comment id 2 : " +comment_id);
-
-                                        }
-                                    }
-                                    if (current_user_id.equals(comment_user_id)) {
-                                        firebaseFirestore.collection("Posts/"+post_id+"/Comments").document(comment_new_id).delete()
-
-                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                               // notifyDataSetChanged();
-                                                Log.e("comment","position :"+position);
-                                                commentsList.remove(position);
-                                                notifyItemRemoved(position);
-                                                notifyDataSetChanged();
-
-                                                Toast.makeText(context,"댓글이 삭제되었습니다!",Toast.LENGTH_LONG).show();
-
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(context,"자신이 작성한 댓글만 삭제됩니다!",Toast.LENGTH_LONG).show();
-                                            }
-                                        });
-                                    }
                                 }
-                            }
-                        });
-
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context, "자신이 작성한 댓글만 삭제됩니다!", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
         });
-
     }
 
 
