@@ -16,9 +16,7 @@ import kr.hs.emirim.s2019w28.dongji.R;
 
 public class CheckFragment extends Fragment {
 
-    private Fragment question1;
-
-    private Button next1_btn;
+    private Fragment check_start;
 
 
     public CheckFragment() {
@@ -31,9 +29,9 @@ public class CheckFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_check, container, false);
 
-        question1 = new Question1();
+        check_start = new CheckStartFragment();
 
-        getFragmentManager().beginTransaction().replace(R.id.question_container, question1).commit();
+        getFragmentManager().beginTransaction().replace(R.id.question_container, check_start).commit();
 
         // Inflate the layout for this fragment
         return view;
