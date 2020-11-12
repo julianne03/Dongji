@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView22"
-        android:layout_width="391dp"
-        android:layout_height="171dp"
+        android:layout_width="368dp"
+        android:layout_height="143dp"
         android:src="@drawable/button_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
@@ -19,62 +19,68 @@
 
     <ImageView
         android:id="@+id/imageView23"
-        android:layout_width="392dp"
-        android:layout_height="178dp"
+        android:layout_width="370dp"
+        android:layout_height="169dp"
         android:src="@drawable/button_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView87" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView85"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="급성형 돼지열병"
+        android:textColor="#3D5AFE"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView87"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="만성형 돼지열병"
+        android:textColor="#3D5AFE"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView22" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView92"
-        android:layout_width="354dp"
-        android:layout_height="151dp"
+        android:layout_width="345dp"
+        android:layout_height="108dp"
         android:layout_marginStart="16dp"
-        android:text="종돈군에 돼지열병이 처음 발생할 때에는 단지 몇 마리의 돼지에서만 임상증상을 보이며 식욕결핍, 후구마비 등 신경증상 또는 혼수상태를 관찰할 수 있다. 돼지열병 바이러스에 감염되면 6일 이내 체온이 42℃까지 높아지나 독력이 약한 돼지열병 바이러스에 감염된 돼지의 경우에서는 체온이 그렇게 높지 않을 수도 있다. 초기 증상으로 눈곱이 끼고 변비증상이 나타난 후 시간이 경과함에 따라 황회색의 수양성 설사를 하게 된다. 감염돈군의 돼지는 체온을 유지하기 위해 모여있거나 포개어 있으며 오한을 느끼는 것처럼 보인다. 백혈구 수는 전형적으로 혈액 ㎣당 보통 3,000∼9,000까지 낮게 나타난다. 그러나 감염 후기에 살모넬라 및 파스튜렐라가 혼합감염되면 백혈구 증가증이 나타날 수 있다."
+        android:text="종돈군에 돼지열병이 처음 발생할 때에는 단지 몇 마리의 돼지에서만 임상증상을 보이며 식욕결핍, 후구마비 등 신경증상 또는 혼수상태를 관찰할 수 있다. 돼지열병 바이러스에 감염되면 6일 이내 체온이 42℃까지 높아지나 독력이 약한 돼지열병 바이러스에 감염된 돼지의 경우에서는 체온이 그렇게 높지 않을 수도 있다. 초기 증상으로 눈곱이 끼고 변비증상이 나타난 후 시간이 경과함에 따라 황회색의 수양성 설사를 하게 된다."
+        android:textColor="#000000"
         android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView22"
         app:layout_constraintEnd_toEndOf="@+id/imageView22"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView22"
         app:layout_constraintTop_toTopOf="@+id/imageView22"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.714" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView95"
-        android:layout_width="359dp"
-        android:layout_height="150dp"
+        android:layout_width="341dp"
+        android:layout_height="130dp"
         android:layout_marginEnd="11dp"
-        android:text="만성형 돼지열병은 약독 돼지열병 바이러스에 감염될 경우에 발생되며 흔히 위축돈이 많이 발생하게 된다. 몇 주 후 일반적으로 식욕과 임상증상이 호전되는 것 같지만 시간이 경과할수록 많은 돼지가 병이 재발하거나 폐사한다. 약독 돼지열병 바이러스에 감염된 돼지 중에서는 17주까지 생존하며 어떤 경우는 21주까지도 생존할 수 있다. 이런 경우 일반적으로 백혈구 감소증이 지속된다. 그러나 다른 세균성 질병 등에 혼합감염되면 백혈구 증가 등이 나타난다. 질병이 진행됨에 따라 어떤 돼지는 노란색을 띤 담즙색 액체를 토해내거나 또는 피부의 진전증상이 관찰된다. 많은 경우에 흐느적거리거나 비틀거리는 걸음걸이가 특징인 현저한 신경증상을 보인다. 수 주 동안 생존한 돼지는 낮은 정도의 발열, 백혈구 감소증과 전반적으로 외관상 일시적인 호전을 보이다가 식욕감소, 침울, 설사, 체온상승 그리고 폐사로 진행되는 전형적인 만성 돼지열병 증상으로 발전된다."
+        android:text="만성형 돼지열병은 약독 돼지열병 바이러스에 감염될 경우에 발생되며 흔히 위축돈이 많이 발생하게 된다. 몇 주 후 일반적으로 식욕과 임상증상이 호전되는 것 같지만 시간이 경과할수록 많은 돼지가 병이 재발하거나 폐사한다. 약독 돼지열병 바이러스에 감염된 돼지 중에서는 17주까지 생존하며 어떤 경우는 21주까지도 생존할 수 있다. 이런 경우 일반적으로 백혈구 감소증이 지속된다. 그러나 다른 세균성 질병 등에 혼합감염되면 백혈구 증가 등이 나타난다. 질병이 진행됨에 따라 어떤 돼지는 노란색을 띤 담즙색 액체를 토해내거나 또는 피부의 진전증상이 관찰된다. 많은 경우에 흐느적거리거나 비틀거리는 걸음걸이가 특징인 현저한 신경증상을 보인다. "
+        android:textColor="#000000"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView23"
         app:layout_constraintEnd_toEndOf="@+id/imageView23"
+        app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="@+id/imageView23"
-        app:layout_constraintTop_toTopOf="@+id/imageView23" />
+        app:layout_constraintTop_toTopOf="@+id/imageView23"
+        app:layout_constraintVertical_bias="0.538" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

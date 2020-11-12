@@ -7,11 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".virus_detail.more_info.Pig.pFragment2">
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView84"
         android:layout_width="379dp"
         android:layout_height="119dp"
         android:text="주로 감염돼지의 분변, 오줌, 눈물, 콧물에 배출되는 바이러스에 직접 접촉하여나 경구감염되어 전염된다. 사람이나 기구같은 기계적인 매개체로 인해서도 전염된다. 임신돼지가 병원성이 약한 바이러스에 감염되면 태아에게 전염될 수 있다."
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

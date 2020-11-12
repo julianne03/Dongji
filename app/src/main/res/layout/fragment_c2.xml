@@ -7,46 +7,50 @@
     android:layout_height="match_parent"
     tools:context=".virus_detail.more_info.Cow.cFragment2" >
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView104"
         android:layout_width="341dp"
         android:layout_height="116dp"
         android:layout_marginTop="24dp"
         android:text="소해면상뇌증(BSE)의 경우 현재까지 밝혀진 전파방법은 스크래피에 걸린 면양이나 소해면상뇌증에 감염된 소의 육골분 등이 함유된 사료를 섭취함으로써 감염이 이루어지는 것으로 보고되어 있고 접촉감염은 일어나지 않으며 수직전파의 가능성은 매우 낮지만 정확한 것은 밝혀져 있지 않다."
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView102" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView106"
         android:layout_width="331dp"
         android:layout_height="252dp"
         android:layout_marginTop="16dp"
         android:text="소는 다른 대부분 가축들과 마찬가지로 초식동물이기 때문에 자연상태에서는 풀이나 곡식을 먹는다. 그러나 산업화한 현대 축산 체계에서는 인공 사료들이 사용되고 있는데 여기에는 항생제, 호르몬, 살충제, 화학비료나 단백질 보충제 등의 성분이 포함되어 있다. 동물의 부산물을 이용하여 만든 동물성 사료를 단백질 보충제로 사용하는 관행은 1987년 이전부터 유럽에서는 널리 퍼져 있었다. 세계적으로는 콩이 가축에게 먹이는 가장 보편적인 식물성 단백질 보충제이지만 유럽에서는 콩이 잘 자라지 않기 때문에 유럽의 축산업자들은 대용품으로 가격이 낮은 동물의 부산물을 사용하기 시작한 것이다. 이러한 관행이 소해면상뇌증의 확산에 기여했다고 여겨진다."
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView105" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView105"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="확산"
+        android:textColor="#3D5AFE"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView104" />
 
-    <TextView
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView102"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="261dp"
         android:text="전파 방법"
+        android:textColor="#3D5AFE"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.625"
