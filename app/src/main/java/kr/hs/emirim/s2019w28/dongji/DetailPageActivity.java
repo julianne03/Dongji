@@ -311,6 +311,7 @@ public class DetailPageActivity extends AppCompatActivity implements View.OnClic
                                     Log.e("post delete","Users의 post 삭제 완료");
                                 }
                             });
+
                         }
                     }
                 });

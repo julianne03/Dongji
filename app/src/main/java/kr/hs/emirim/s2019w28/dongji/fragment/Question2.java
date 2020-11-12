@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import kr.hs.emirim.s2019w28.dongji.R;
@@ -60,7 +59,7 @@ public class Question2 extends Fragment {
         radioGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
 
 
-        next2_btn = (Button) viewGroup.findViewById(R.id.next2_btn);
+        next2_btn = (Button) viewGroup.findViewById(R.id.next1_btn);
 
         next2_btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,8 +8,10 @@
     tools:context=".fragment.HomeFragment">
 
     <HorizontalScrollView
-        android:layout_width="355dp"
-        android:layout_height="127dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/textView20"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="News"
+        android:text="소식"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="현재 이슈되고 있는 기사들!"
+        android:text="우리 모두 동물들을 사랑합시다"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -54,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="200dp"
         android:text="Posts"
         android:textColor="#000000"
         android:textSize="30sp"

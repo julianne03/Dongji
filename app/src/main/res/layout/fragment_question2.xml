@@ -72,6 +72,7 @@
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -94,43 +95,44 @@
             android:textSize="20sp" />
     </RadioGroup>
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="187dp"
-        android:layout_height="141dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="44dp"
-        android:src="@drawable/animal_put"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="367dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
         android:padding="20dp"
-        android:text="시기에 맞춰 동물에게 예방접종을 하셨나요?\n(생후 6주가 되지 않은 동물 제외)"
+        android:text="시기(생후 6주가 되지 않은 동물 제외)"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        app:layout_constraintTop_toBottomOf="@+id/textView118" />
 
     <Button
-        android:id="@+id/next2_btn"
-        android:layout_width="237dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="150dp"
-        android:background="@drawable/button_background"
+        android:id="@+id/next1_btn"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:background="@drawable/next_btn_shape"
         android:text="다음"
         android:textColor="#000000"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView118"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:text="시기에 맞춰 동물에게 예방접종을\n하셨나요?"
+        android:textColor="#2979FF"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

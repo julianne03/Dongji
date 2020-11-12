@@ -41,7 +41,7 @@ public class Question1 extends Fragment {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_question1, container, false);
 
         Question2 = new Question2();
-        next1_btn = (Button) viewGroup.findViewById(R.id.next2_btn);
+        next1_btn = (Button) viewGroup.findViewById(R.id.next1_btn);
         radioButton = (RadioButton) viewGroup.findViewById(R.id.radioButton);
         radioButton2 = (RadioButton) viewGroup.findViewById(R.id.radioButton2);
         radioGroup = (RadioGroup) viewGroup.findViewById(R.id.radioGroup);
