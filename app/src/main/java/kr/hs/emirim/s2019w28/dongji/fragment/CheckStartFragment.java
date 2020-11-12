@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import kr.hs.emirim.s2019w28.dongji.R;
@@ -15,7 +16,7 @@ import kr.hs.emirim.s2019w28.dongji.R;
 public class CheckStartFragment extends Fragment {
 
     private Fragment question1;
-    private ImageView start_btn;
+    private Button start_btn;
 
     public CheckStartFragment() {
         // Required empty public constructor

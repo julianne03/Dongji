@@ -8,11 +8,11 @@
 
     <ImageView
         android:id="@+id/imageView27"
-        android:layout_width="wrap_content"
+        android:layout_width="419dp"
         android:layout_height="270dp"
         android:src="@drawable/survey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +24,7 @@
         android:layout_marginTop="32dp"
         android:text="하루에 한번씩!\n실천해보아요 질병 자가진단!"
         android:textColor="#058E4B"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView27" />
 
@@ -33,10 +33,10 @@
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:text="※주의사항※\n질문이 포괄적이므로 최종 의학적 결정 및 치료 행위 등은 반드시 자격있는 의사에게 받아야 합니다. "
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView115" />
 
@@ -45,13 +45,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/survey_start_btn_shape"
+        android:clickable="true"
         android:text="시작하기"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView116" />
 
