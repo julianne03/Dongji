@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText reg_password;
     private EditText reg_confirm_password;
     private Button reg_btn;
+    private CheckBox personal_checkbox;
     private TextView reg_login_btn;
     private ProgressBar register_progress;
 
@@ -41,12 +43,15 @@ public class RegisterActivity extends AppCompatActivity {
         reg_confirm_password = (EditText) findViewById(R.id.reg_confirm_password);
         reg_btn = (Button) findViewById(R.id.reg_btn);
         reg_login_btn = findViewById(R.id.reg_login_btn);
-        register_progress = findViewById(R.id.register_progress);
+        //register_progress = findViewById(R.id.register_progress);
 
         reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 register_progress.setVisibility(View.VISIBLE);
+                if (personal_checkbox.isChecked()==false) {   //체크 박스가 해제 된 경우
+                    Toast.makeText(getApplicationContext(), "체크박스를 체크해주세요", Toast.LENGTH_LONG).show();
+                }
 
                 String email = reg_email.getText().toString();
                 String pass = reg_password.getText().toString();
@@ -73,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                         });
 
                     } else {
-                        register_progress.setVisibility(View.INVISIBLE);
+                        //register_progress.setVisibility(View.INVISIBLE);
                         Toast.makeText(RegisterActivity.this, "다시 입력한 비밀번호와 기존 비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
                     }
                 }
