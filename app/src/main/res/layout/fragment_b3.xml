@@ -21,7 +21,7 @@
     <ImageView
         android:id="@+id/imageView21"
         android:layout_width="357dp"
-        android:layout_height="177dp"
+        android:layout_height="190dp"
         android:layout_marginTop="4dp"
         android:src="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +57,7 @@
         android:id="@+id/textView77"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="작업 위생 "
         android:textColor="#3D5AFE"
         android:textSize="25sp"
@@ -70,7 +70,7 @@
         android:id="@+id/textView79"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="작업장 위생 "
         android:textColor="#3D5AFE"
         android:textSize="25sp"
@@ -81,8 +81,9 @@
 
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView76"
-        android:layout_width="325dp"
+        android:layout_width="326dp"
         android:layout_height="38dp"
+        android:lineSpacingExtra="4sp"
         android:text="모든 유제품은 섭취 전 또는 가공 전에 반드시 저온 살균 처리를 하고 생으로 고기를 섭취하지 않도록 한다. "
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/imageView19"
@@ -92,8 +93,9 @@
 
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView78"
-        android:layout_width="341dp"
+        android:layout_width="326dp"
         android:layout_height="63dp"
+        android:lineSpacingExtra="4sp"
         android:text="작업 후에는 반드시 손소독제를 사용하고 상처가 있을 경우 감염 물질이 들어가지 않도록 주의하며 작업시 보호장구를 반드시 착용한다. "
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/imageView20"
@@ -106,6 +108,7 @@
         android:layout_width="326dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
+        android:lineSpacingExtra="4sp"
         android:text="소가 출산 또는 유산을 하는 경우 전파가 잘 이루어지므로 이후 부산물 등은 소각이나 매몰 처리를 해야한다.   "
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/imageView21"
@@ -115,8 +118,10 @@
 
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView81"
-        android:layout_width="337dp"
+        android:layout_width="326dp"
         android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="4sp"
         android:text="감염된 동물의 배설물은 매일 치우고, 거름으로 만들 경우 균이 비활성화 되기까지 최소 6개월에서 1년이 소요되므로 주의해야한다.   "
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/imageView21"
@@ -125,8 +130,10 @@
 
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView82"
-        android:layout_width="343dp"
+        android:layout_width="326dp"
         android:layout_height="43dp"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="4sp"
         android:text="브루셀라병 동거축은 브루셀라병이 아니더라도 도축장에 도착 후 가장 마지막에 도축하도록 한다."
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/imageView21"

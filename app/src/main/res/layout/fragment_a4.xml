@@ -5,6 +5,8 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".virus_detail.more_info.Ai.aFragment4">
 
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
@@ -64,12 +66,14 @@
             android:layout_height="match_parent"
             android:background="#C5E0B4">
 
-            <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
+            <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
                 android:id="@+id/textView55"
                 android:layout_width="318dp"
                 android:layout_height="41dp"
+                android:lineSpacingExtra="4sp"
                 android:text="관할 시장·구청장·읍장·면장, 시·도가축방역기관장 또는 가축위생방역지원본부장  "
                 android:textColor="#000000"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,12 +97,13 @@
             android:layout_height="match_parent"
             android:background="#C5E0B4">
 
-            <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
+            <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
                 android:id="@+id/textView60"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="구두·서면 또는 전자문서  "
                 android:textColor="#000000"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -108,7 +113,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="280dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
@@ -122,7 +127,7 @@
             android:layout_height="match_parent"
             android:background="#C5E0B4">
 
-            <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
+            <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
                 android:id="@+id/textView62"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -131,7 +136,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="1. 신고대상 가금의 소유자등의 성명 및 신고대상 가금의 사육 장소 또는 발견 장소\n\n2. 신고대상 가금의 종류 및 수수\n\n3. 질병명(수의사의 진단을 받지 아니한 때에는 신고자가 추정하는 병명 또는 발견당시의 상태)\n\n4. 폐사 연월일(폐사 연월일이 분명하지 아니한 때에는 발견 연월일)\n\n5. 신고자의 성명 및 주소\n\n6. 그 밖에 가금이 죽거나 병든 원인 등 신고에 관하여 필요한 사항 조류인플루엔자의 주요 임상 증상"
                 android:textColor="#000000"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

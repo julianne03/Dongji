@@ -25,8 +25,9 @@
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView91"
         android:layout_width="335dp"
-        android:layout_height="170dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:lineSpacingExtra="4sp"
         android:text="소, 돼지, 양, 염소 및 사슴 등 발굽이 둘로 갈라진 동물(우제류)에 감염되는 질병으로 전염성이 매우 강하며 입술, 혀, 잇몸, 코 또는 지간부 등에 물집(수포)이 생기며 체온이 급격히 상승되고 식욕이 저하되어 심하게 앓거나 어린 개체의 경우 폐사가 나타나는 질병이다. 세계동물보건기구(OIE)에서 지정한 중요 가축 전염병으로 가축전염병예방법 제1종 가축전염병에 속한다."
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"

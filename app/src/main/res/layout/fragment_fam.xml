@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="440dp"
-        android:layout_height="235dp"
+        android:layout_height="240dp"
         android:src="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"

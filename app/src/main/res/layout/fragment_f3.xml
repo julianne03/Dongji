@@ -10,12 +10,12 @@
     <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
         android:id="@+id/textView26"
         android:layout_width="360dp"
-        android:layout_height="362dp"
-        android:text="구제역은 섭씨 50도에서 완전히 사멸하는 것으로 전국 확산의 우려가 있으므로 농가는 아래 구제역 행동 지침을 완전히 숙지하고 행동하여야 한다.\n\n농장을 폐쇄하고 꼭 필요한 물품과 사람만을 출입시켜야 한다. \n꼭 필요한 외출만을 하고 각종 농가 모임은 참석하지 않으며 외출복을 입고 외양간으로 가는 일은 없어야 한다. \n구제역 바이러스의 사멸은 섭씨 50도이므로 과립 생석회를 우사 내 외부에 2일 간격으로 살포한다. \n외양간 내부에 살포시 화재 위험이 있으므로 비료 살포하듯이 살포하며 절대로 한 군데 많은 양을 살포하면 안된다. \n출입구에는 출입구 폭만큼 2미터 길이로 두텁게 생석회를 살포한다.\n자체 소독을 강화하되 최소 3일 간격으로 소독하고 소독 일지는 반드시 작성한다.\n 이상이 있는 소를 발견하면 즉시 가축 위생시험소나 행정 시청, 군청에 신고한다. \n위 지침을 준수하지 않아 질병이 발생할 때에는 대한민국에서는 보상이 제외된다."
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:lineSpacingExtra="4sp"
+        android:text="구제역은 섭씨 50도에서 완전히 사멸하는 것으로 전국 확산의 우려가 있으므로 농가는 아래 구제역 행동 지침을 완전히 숙지하고 행동하여야 한다.\n\n1. 농장을 폐쇄하고 꼭 필요한 물품과 사람만을 출입시켜야 한다.\n2. 꼭 필요한 외출만을 하고 각종 농가 모임은 참석하지 않으며 외출복을 입고 외양간으로 가는 일은 없어야 한다.\n3. 구제역 바이러스의 사멸은 섭씨 50도이므로 과립 생석회를 우사 내 외부에 2일 간격으로 살포한다.\n4. 외양간 내부에 살포시 화재 위험이 있으므로 비료 살포하듯이 살포하며 절대로 한 군데 많은 양을 살포하면 안된다.\n5. 출입구에는 출입구 폭만큼 2미터 길이로 두텁게 생석회를 살포한다.\n6. 자체 소독을 강화하되 최소 3일 간격으로 소독하고 소독 일지는 반드시 작성한다.\n7. 이상이 있는 소를 발견하면 즉시 가축 위생시험소나 행정 시청, 군청에 신고한다.\n\n---위 지침을 준수하지 않아 질병이 발생할 때에는 대한민국에서는 보상이 제외된다."
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.117" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

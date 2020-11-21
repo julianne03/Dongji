@@ -5,16 +5,125 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".virus_detail.more_info.Ai.aFragment2">
 
-    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
-        android:id="@+id/textView54"
-        android:layout_width="341dp"
-        android:layout_height="392dp"
-        android:layout_marginTop="100dp"
-        android:text="조류인플루엔자는 주로 직접접촉에 의해서 전파되며, 감염된 닭의 분변 1그램에는 십만 내지 백만 마리의 닭을 감염시킬 수 있는 고농도의 바이러스가 들어있다.\n\n이러한 분변이 오염된 차량(특히 분뇨차량)이나 사람, 사료, 사양 관리기구 등을 통해 전염이 일어나며, 가까운 거리는 오염된 쥐나 야생조류에 의하여도 전파될 수 있다.\n\n계사 내의 아주 근접한 거리에서는 오염된 물․사료, 기침시의 비말 등에 의해서도 전염될 수 있으며, 바로 인접한 농가간에는 바이러스에 오염된 공기중의 부유물이 바람에 의해 이동됨으로써 전파가 일어나는 것도 가능하다.\n\n장거리 전파는 주로 야생철새의 이동에 따라 일어나는 것으로 보고된 바 있으며, 또한 중국, 동남아 등 HPAI 발생국으로부터 오염된 냉동 닭고기나 오리고기, 생계란 등에 의해서 유입될 수도 있으며, 해외방문자 등 사람에 의하여 유입될 위험성도 간과할 수 없는 중요한 요인 중 하나다."
-        android:textColor="#000000"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="750dp">
+
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+                    android:id="@+id/textView54"
+                    android:layout_width="341dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="조류인플루엔자는 주로 직접접촉에 의해서 전파되며, 감염된 닭의 분변 1그램에는 십만 내지 백만 마리의 닭을 감염시킬 수 있는 고농도의 바이러스가 들어있다."
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView48"
+                    app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
+                    android:id="@+id/textView48"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:text="1.직접접촉"
+                    android:textColor="#3D5AFE"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+                    android:id="@+id/textView55"
+                    android:layout_width="341dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="이러한 분변이 오염된 차량(특히 분뇨차량)이나 사람, 사료, 사양 관리기구 등을 통해 전염이 일어나며, 가까운 거리는 오염된 쥐나 야생조류에 의하여도 전파될 수 있다."
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView56"
+                    app:layout_constraintTop_toBottomOf="@+id/textView56" />
+
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
+                    android:id="@+id/textView56"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:text="2.가까운 거리"
+                    android:textColor="#3D5AFE"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView54" />
+
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+                    android:id="@+id/textView58"
+                    android:layout_width="341dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="계사 내의 아주 근접한 거리에서는 오염된 물․사료, 기침시의 비말 등에 의해서도 전염될 수 있으며, 바로 인접한 농가간에는 바이러스에 오염된 공기중의 부유물이 바람에 의해 이동됨으로써 전파가 일어나는 것도 가능하다."
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView57"
+                    app:layout_constraintTop_toBottomOf="@+id/textView57" />
+
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
+                    android:id="@+id/textView57"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:text="3.아주 근접한 거리"
+                    android:textColor="#3D5AFE"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView55" />
+
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+                    android:id="@+id/textView59"
+                    android:layout_width="341dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="장거리 전파는 주로 야생철새의 이동에 따라 일어나는 것으로 보고된 바 있으며, 또한 중국, 동남아 등 HPAI 발생국으로부터 오염된 냉동 닭고기나 오리고기, 생계란 등에 의해서 유입될 수도 있으며, 해외방문자 등 사람에 의하여 유입될 위험성도 간과할 수 없는 중요한 요인 중 하나다."
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView60"
+                    app:layout_constraintTop_toBottomOf="@+id/textView60" />
+
+                <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
+                    android:id="@+id/textView60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:text="4.장거리"
+                    android:textColor="#3D5AFE"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView58" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
