@@ -9,8 +9,8 @@ android {
         applicationId "kr.hs.emirim.s2019w28.dongji"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 4
-        versionName "4.0"
+        versionCode 5
+        versionName "5.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
