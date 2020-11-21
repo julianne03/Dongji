@@ -9,10 +9,9 @@
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="431dp"
-        android:layout_height="237dp"
+        android:layout_height="250dp"
         android:src="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,12 +65,26 @@
 
     <ImageView
         android:id="@+id/detail_cow"
-        android:layout_width="157dp"
-        android:layout_height="148dp"
+        android:layout_width="145dp"
+        android:layout_height="135dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/detail_cow"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView44"
         app:layout_constraintVertical_bias="0.444" />
+
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
+        android:id="@+id/textView66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="자세히 보기"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_cow" />
 </androidx.constraintlayout.widget.ConstraintLayout>

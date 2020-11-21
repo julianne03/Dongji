@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="440dp"
-        android:layout_height="226dp"
+        android:layout_height="200dp"
         android:src="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
@@ -40,14 +40,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothic
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
         android:id="@+id/textView39"
         android:layout_width="380dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
+        android:gravity="center"
         android:lineSpacingExtra="8dp"
         android:text="이외 다양한 가축에게 일어날 수 있는 질병에 대한\n정보를 제공합니다."
         android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"

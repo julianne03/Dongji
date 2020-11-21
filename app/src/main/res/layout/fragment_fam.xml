@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="440dp"
-        android:layout_height="226dp"
+        android:layout_height="235dp"
         android:src="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
@@ -67,11 +67,25 @@
     <ImageView
         android:id="@+id/detail_fam"
         android:layout_width="184dp"
-        android:layout_height="154dp"
+        android:layout_height="140dp"
+        android:layout_marginBottom="24dp"
         android:src="@drawable/fam"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView41"
         app:srcCompat="@drawable/fam" />
+
+    <kr.hs.emirim.s2019w28.dongji.NaumBarunGothicBold
+        android:id="@+id/textView67"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="자세히 보기"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_fam" />
 </androidx.constraintlayout.widget.ConstraintLayout>
