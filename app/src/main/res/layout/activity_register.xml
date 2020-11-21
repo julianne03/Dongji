@@ -12,7 +12,7 @@
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:text="Create Account"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="45dp"
@@ -70,7 +70,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="16dp"
         android:text="비밀번호를 다시 입력해주세요"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_password" />
 
@@ -81,7 +81,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="8dp"
         android:text="비밀번호"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_email" />
 
@@ -90,9 +90,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:text="이메일"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
@@ -101,7 +101,7 @@
         android:id="@+id/reg_btn"
         android:layout_width="294dp"
         android:layout_height="50dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/button_background"
         android:text="Sign up"
         android:textColor="#FFFFFF"
@@ -109,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_confirm_password" />
+        app:layout_constraintTop_toBottomOf="@+id/personal_checkbox" />
 
     <TextView
         android:id="@+id/textView32"
@@ -118,7 +118,7 @@
         android:layout_marginStart="84dp"
         android:layout_marginTop="16dp"
         android:text="계정이 이미 있으십니까?"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_btn" />
 
@@ -126,12 +126,12 @@
         android:id="@+id/reg_login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
         android:text="로그인"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView32"
         app:layout_constraintTop_toBottomOf="@+id/reg_btn" />
@@ -139,11 +139,12 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="285dp"
-        android:layout_height="83dp"
-        app:layout_constraintBottom_toTopOf="@+id/reg_btn"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_confirm_password">
+        app:layout_constraintTop_toBottomOf="@+id/textView63">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -162,7 +163,8 @@
         android:id="@+id/personal_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="위 내용에 동의합니다"
+        android:layout_marginTop="8dp"
+        android:text="개인정보 취급방침에 동의합니다."
         app:layout_constraintEnd_toEndOf="@+id/scrollView2"
         app:layout_constraintStart_toStartOf="@+id/scrollView2"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
@@ -171,12 +173,32 @@
         android:id="@+id/textView63"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="개인정보방침"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        android:layout_marginTop="16dp"
+        android:text="[필수] 개인정보방침"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/reg_confirm_password"
         app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toStartOf="@+id/reg_confirm_password"
-        app:layout_constraintTop_toBottomOf="@+id/reg_confirm_password"
-        app:layout_constraintVertical_bias="0.38" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_confirm_password" />
+
+    <TextView
+        android:id="@+id/see_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:text="보기"
+        app:layout_constraintEnd_toEndOf="@+id/reg_confirm_password"
+        app:layout_constraintTop_toBottomOf="@+id/reg_confirm_password" />
+
+    <TextView
+        android:id="@+id/close_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="접기"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/reg_confirm_password"
+        app:layout_constraintTop_toBottomOf="@+id/reg_confirm_password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
