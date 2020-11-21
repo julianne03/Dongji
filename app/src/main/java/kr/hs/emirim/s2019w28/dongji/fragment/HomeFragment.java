@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,9 +33,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.hs.emirim.s2019w28.dongji.Adapter.PostRecyclerAdapter;
+import kr.hs.emirim.s2019w28.dongji.MainActivity;
 import kr.hs.emirim.s2019w28.dongji.NewPostActivity;
 import kr.hs.emirim.s2019w28.dongji.R;
 import kr.hs.emirim.s2019w28.dongji.SetupActivity;
+import kr.hs.emirim.s2019w28.dongji.SplashActivity;
 import kr.hs.emirim.s2019w28.dongji.model.Post;
 import kr.hs.emirim.s2019w28.dongji.model.User;
 
@@ -54,10 +59,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View mView = inflater.inflate(R.layout.fragment_home, container, false);
+        final View mView = inflater.inflate(R.layout.fragment_home, container, false);
 
         post_list = new ArrayList<>();
         user_list = new ArrayList<>();
@@ -75,7 +80,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         postRecyclerAdapter = new PostRecyclerAdapter(post_list,user_list);
         post_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
         post_list_view.setAdapter(postRecyclerAdapter);
-
 
         if(firebaseAuth.getCurrentUser() != null) {
 
